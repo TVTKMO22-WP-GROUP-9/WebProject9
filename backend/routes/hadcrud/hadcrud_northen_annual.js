@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const book = require("../models/hadcrud_global_annual_model");
+const book = require("../../models/hadcrud/hadcrud_northen_annual_model");
 
 router.get("/", function (request, response) {
   book.getAll(function (err, dbResult) {
