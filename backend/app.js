@@ -15,6 +15,8 @@ const iceberg1 = require("./routes/iceberg/iceberg_1");
 const iceberg2 = require("./routes/iceberg/iceberg_2");
 const iceberg3 = require("./routes/iceberg/iceberg_3");
 
+const carbondioxide = require("./routes/carbondioxide/carbondioxide");
+
 var app = express();
 
 const helmet = require("helmet");
@@ -39,6 +41,8 @@ app.use("/hadcrud", hadcrudRouter);
 app.use("/iceberg1", iceberg1);
 app.use("/iceberg2", iceberg2);
 app.use("/iceberg3", iceberg3);
+
+app.use("/carbondioxide",carbondioxide);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
