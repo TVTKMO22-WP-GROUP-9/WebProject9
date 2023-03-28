@@ -1,3 +1,4 @@
+import Visualization4 from "./Components/Visualization4.js"
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import {
@@ -20,12 +21,13 @@ Chart.register(
   Legend
 );
 
+
 function App() {
   const [chartData, setChartData] = useState({});
 
   useEffect(() => {
     const fetchChartData = async () => {
-      const res = await fetch("http://localhost:3000/carbondioxide");
+      const res = await fetch("http://78.27.93.164:229/carbondioxide");
       const data = await res.json();
 
       console.log(data); // log the fetched data to the console
@@ -55,6 +57,9 @@ function App() {
       ) : (
         <p>Loading chart data...</p>
       )}
+      <div>
+        <Visualization4/>
+      </div>
     </div>
   );
 }
