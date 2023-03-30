@@ -1,60 +1,47 @@
-import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
+import logo from "./logo.svg";
+import "./App.css";
+import Select from "react-select";
+import "bootstrap/dist/css/bootstrap.css";
+
 import {
-  Chart,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-Chart.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+  Redirect,
+} from "react-router-dom";
+import { Container, Col, Row } from "react-bootstrap";
+
+import HadcrutAnnual from "./Visualisation1/HadcrutAnnual";
+import HadcrutMonthly from "./Visualisation1/HadcrutMonthly";
+import Reconstruction from "./Visualisation1/Reconstruction";
+import Icebergs from "./Visualisation2/Icebergs";
+import Error404 from "./Pages/error";
+import Navigation from "./Pages/Navigation";
+import Home from "./Pages/Home";
 
 function App() {
-  const [chartData, setChartData] = useState({});
-
-  useEffect(() => {
-    const fetchChartData = async () => {
-      const res = await fetch("http://localhost:3000/carbondioxide");
-      const data = await res.json();
-
-      console.log(data); // log the fetched data to the console
-
-      const chartData = {
-        labels: data.map((item) => item.time),
-        datasets: [
-          {
-            label: "Co2",
-            data: data.map((item) => item.carbon_dioxide),
-            fill: false,
-            borderColor: "rgb(75, 192, 192)",
-            tension: 0.1,
-          },
-        ],
-      };
-
-      setChartData(chartData);
-    };
-
-    fetchChartData();
-  }, []);
   return (
-    <div>
-      {chartData.labels && chartData.datasets ? (
-        <Line data={chartData} />
-      ) : (
-        <p>Loading chart data...</p>
-      )}
+    <div className="App">
+      <Router>
+        <Navigation></Navigation>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <Routes>
+          <Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/HadcrutAnnual" element={<HadcrutAnnual />} />
+            <Route path="/HadcrutMonthly" element={<HadcrutMonthly />} />
+            <Route path="/Reconstruction" element={<Reconstruction />} />
+            <Route path="/Icebergs" element={<Icebergs />} />
+            <Route path="/404" element={<Error404 />} />
+            <Route path="*" element={<Navigate replace to="/404" />} />
+          </Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
