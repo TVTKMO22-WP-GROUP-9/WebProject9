@@ -21,6 +21,7 @@ const visualization4 = require("./routes/visualization4/visualization4.js");
 const sector = require("./routes/visualization5/sector.js");
 const sub_sector = require("./routes/visualization5/sub_sector.js");
 const sub_sector_further = require("./routes/visualization5/sub_sector_further.js");
+const user = require("./routes/User/user");
 
 var app = express();
 
@@ -53,6 +54,7 @@ app.use("/visualization4", visualization4);
 app.use("/sector", sector);
 app.use("/sub_sector", sub_sector);
 app.use("/sub_sector_further", sub_sector_further);
+app.use("/user", user);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
