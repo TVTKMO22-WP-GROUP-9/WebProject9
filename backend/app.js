@@ -23,6 +23,9 @@ const sub_sector = require("./routes/visualization5/sub_sector.js");
 const sub_sector_further = require("./routes/visualization5/sub_sector_further.js");
 const user = require("./routes/User/user");
 
+const visualization = require("./routes/Visualization/Visualization");
+const visualization_view = require("./routes/Visualization_view/visualization_view");
+
 var app = express();
 
 const helmet = require("helmet");
@@ -55,6 +58,9 @@ app.use("/sector", sector);
 app.use("/sub_sector", sub_sector);
 app.use("/sub_sector_further", sub_sector_further);
 app.use("/user", user);
+
+app.use("/visualization", visualization);
+app.use("/visualization_view", visualization_view);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

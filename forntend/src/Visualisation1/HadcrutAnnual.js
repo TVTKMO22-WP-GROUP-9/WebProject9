@@ -35,6 +35,7 @@ function HadcrutAnnual() {
     const res3 = await fetch(
       "https://webproj9.oulu.azatotweb.com/hadcrud/NorthenAnnual"
     );
+
     const data1 = await res1.json();
     const data2 = await res2.json();
     const data3 = await res3.json();
@@ -77,11 +78,6 @@ function HadcrutAnnual() {
 
   return (
     <Container>
-      <Row className="d-flex justify-content-center">
-        <Col>
-          <h1>GlobalAnnual</h1>
-        </Col>
-      </Row>
       <Row className="d-flex justify-content-center">
         <Col>
           {chartData.labels && chartData.datasets ? (
