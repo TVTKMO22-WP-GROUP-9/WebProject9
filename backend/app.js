@@ -3,6 +3,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var jwt = require('jsonwebtoken');
+var bcrypt = require('bcryptjs');
 
 //const bookRouter = require("./routes/book");
 const hadcrudRouter = require("./routes/hadcrud");
@@ -23,6 +24,7 @@ const sector = require("./routes/visualization5/sector.js");
 const sub_sector = require("./routes/visualization5/sub_sector.js");
 const sub_sector_further = require("./routes/visualization5/sub_sector_further.js");
 const user = require("./routes/User/user");
+const login = require("./routes/login/login.js");
 
 var app = express();
 
@@ -37,6 +39,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(authenticateToken);
 
 app.use("/reconstruction", reconstruction);
 
@@ -56,15 +60,43 @@ app.use("/sector", sector);
 app.use("/sub_sector", sub_sector);
 app.use("/sub_sector_further", sub_sector_further);
 app.use("/user", user);
+app.use("/login/", login);
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
+app.get("/protected", function (req, res) {
+  res.json({
+    text: "This is protected"
+  });
+});
+
+module.exports = app;
+
 
 const port = 3001;
 app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
 });
 
-module.exports = app;
+//authentikoi tokenin
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  console.log("token = " + token);
+  next();
+  //if (token == null) return res.sendStatus(401);
+
+ /* jwt.verify(token, "this_is_your_secret_key", (err, user) => {
+    console.log(err);
+
+    //if (err) return res.sendStatus(403);
+
+    req.user = user;
+
+   
+  });*/
+}

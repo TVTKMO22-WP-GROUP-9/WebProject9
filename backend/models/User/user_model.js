@@ -38,13 +38,14 @@ const user = {
     });
   },
 
-  checkPassword: function (id_user, callback) {
+ /* checkPassword: function (id_user, callback) {
+    console.log("testimaaa");
     return db.query(
       "select user_password from user where id_user=?",
       [id_user],
       callback
     );
-  },
+  },*/
 };
 
 module.exports = user;
