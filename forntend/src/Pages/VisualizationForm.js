@@ -7,17 +7,20 @@ function VisualizationForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3000/visualization", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        url,
-        text,
-        user_id: userId, // include user ID in the request body
-      }),
-    });
+    const response = await fetch(
+      "https://webproj9.oulu.azatotweb.com/visualization",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          url,
+          text,
+          user_id: userId, // include user ID in the request body
+        }),
+      }
+    );
     const data = await response.json();
     console.log(data);
   };

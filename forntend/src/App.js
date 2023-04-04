@@ -23,12 +23,15 @@ import Navigation from "./Pages/Navigation";
 import Home from "./Pages/Home";
 import Page from "./Pages/NumberPage";
 import VisualizationForm from "./Pages/VisualizationForm";
+import TimeLineGraphDemo from "./Visualisation1/Example";
 
 function App() {
   const [pages, setPages] = useState([]);
   useEffect(() => {
     const fetchPages = async () => {
-      const response = await fetch("http://localhost:3000/visualization");
+      const response = await fetch(
+        "https://webproj9.oulu.azatotweb.com/visualization"
+      );
       const data = await response.json();
       setPages(data);
       console.log(data);
@@ -65,6 +68,7 @@ function App() {
             <Route path="/Reconstruction" element={<Reconstruction />} />
             <Route path="/Icebergs" element={<Icebergs />} />
             <Route path="/visInput" element={<VisualizationForm />}></Route>
+            <Route path="/example" element={<TimeLineGraphDemo />}></Route>
             <Route path="*" element={<Error404 />} />
           </Route>
         </Routes>
