@@ -13,8 +13,14 @@ const book = {
   },
   add: function (visualization, callback) {
     return db.query(
-      "insert into visualization (url,text,user_id) values(?,?,?)",
-      [visualization.url, visualization.text, visualization.user_id],
+      "insert into visualization (lable, sideBySide, url,text,user_id) values(?,?,?)",
+      [
+        visualization.lable,
+        visualization.sideBySide,
+        visualization.url,
+        visualization.text,
+        visualization.user_id,
+      ],
       callback
     );
   },
@@ -27,8 +33,15 @@ const book = {
   },
   update: function (id, visualization, callback) {
     return db.query(
-      "update user set url=?, text=?, user_id=? where id_visualization=?",
-      [visualization.url, visualization.text, visualization.user_id, id],
+      "update user set lable =?, sideBySide=?, url=?, text=?, user_id=? where id_visualization=?",
+      [
+        visualization.lable,
+        visualization.sideBySide,
+        visualization.url,
+        visualization.text,
+        visualization.user_id,
+        id,
+      ],
       callback
     );
   },
