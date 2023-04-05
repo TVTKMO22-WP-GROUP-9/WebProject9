@@ -5,7 +5,7 @@ import "chartjs-adapter-luxon";
 import { Line } from "react-chartjs-2";
 import { DateTime } from "luxon";
 
-const TimeLineGraphDemo = () => {
+const HadcrutReconstructionAnnual = () => {
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
   const [data3, setData3] = useState([]);
@@ -124,17 +124,9 @@ const TimeLineGraphDemo = () => {
           unit: "year",
         },
       },
-      yAxis: {
-        type: "linear",
-      },
     },
   };
-  return (
-    <div style={{ width: "1000px" }}>
-      <h1>TimeLineGraphDemo</h1>
-      <Line options={options} data={chartData} />
-    </div>
-  );
+  return <Line options={options} data={chartData} />;
 };
 
-export default TimeLineGraphDemo;
+export default HadcrutReconstructionAnnual;

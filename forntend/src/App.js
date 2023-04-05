@@ -23,7 +23,8 @@ import Navigation from "./Pages/Navigation";
 import Home from "./Pages/Home";
 import Page from "./Pages/NumberPage";
 import VisualizationForm from "./Pages/VisualizationForm";
-import TimeLineGraphDemo from "./Visualisation1/Example";
+import Visualization1 from "./Visualisation1/Visualization1";
+import IceCores from "./Visualisation2/IceCores";
 
 function App() {
   const [pages, setPages] = useState([]);
@@ -63,12 +64,13 @@ function App() {
                 )
               )
             )}
-            <Route path="/HadcrutAnnual" element={<HadcrutAnnual />} />
-            <Route path="/HadcrutMonthly" element={<HadcrutMonthly />} />
+            <Route path="/Visualization1" element={<Visualization1 />} />
+            <Route path="/Visualization2" element={<IceCores />} />
+
+            <Route path="/HadcrutMonthly" element={<IceCores />} />
             <Route path="/Reconstruction" element={<Reconstruction />} />
             <Route path="/Icebergs" element={<Icebergs />} />
             <Route path="/visInput" element={<VisualizationForm />}></Route>
-            <Route path="/example" element={<TimeLineGraphDemo />}></Route>
             <Route path="*" element={<Error404 />} />
           </Route>
         </Routes>
