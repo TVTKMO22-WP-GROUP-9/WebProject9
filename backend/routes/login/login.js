@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const user = require("../../models/User/user_model");
 const login = require("../../models/login/login_model");
 const jwt = require("jsonwebtoken");
-//const dotenv = require("dotenv");
+const dotenv = require("dotenv");
 
 router.post("/", function (request, response) {
   if (request.body.id_user && request.body.password_user) {
@@ -50,8 +50,8 @@ router.post("/", function (request, response) {
 });
 
 function generateAccessToken(login_user) {
-  //dotenv.config();
-  return jwt.sign(login_user, "this_is_your_secret_key", {
+  dotenv.config();
+  return jwt.sign(login_user, process.env.MY_TOKEN, {
     expiresIn: "1800s",
   });
 }

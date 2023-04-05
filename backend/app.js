@@ -73,11 +73,6 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
-app.get("/protected", function (req, res) {
-  res.json({
-    text: "This is protected"
-  });
-});
 
 module.exports = app;
 
@@ -94,14 +89,20 @@ function authenticateToken(req, res, next) {
 
   console.log("token = " + token);
   
-  if (token == null) console.log ("unknown user");
-
-  jwt.verify(token, "this_is_your_secret_key", (err, user) => {
-    console.log(err);
-
-    if (err) console.log ("token error");
-    req.user = user;
+  if (token == null) {
+    console.log ("unknown user");
     next();
-   
-  });
+  }
+  else {
+    jwt.verify(token, process.env.MY_TOKEN, (err, login_user) => {
+      console.log(err);
+  
+      if (err) console.log ("token error");
+      else console.log (login_user);
+      req.login_user = login_user;
+      next();
+     
+    });
+  }
+  
 }
