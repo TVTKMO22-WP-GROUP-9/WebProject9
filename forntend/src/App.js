@@ -20,6 +20,8 @@ import Icebergs from "./Visualisation2/Icebergs";
 import Error404 from "./Pages/error";
 import Navigation from "./Pages/Navigation";
 import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
             <Route path="/Reconstruction" element={<Reconstruction />} />
             <Route path="/Icebergs" element={<Icebergs />} />
             <Route path="/404" element={<Error404 />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="*" element={<Navigate replace to="/404" />} />
           </Route>
         </Routes>
