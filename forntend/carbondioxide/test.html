@@ -1,0 +1,61 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Chart.js example</title>
+  </head>
+  <body>
+    lol
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <canvas id="myChart"></canvas>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+    <script>
+var req = new XMLHttpRequest();
+
+req.open("GET", "http://localhost:3000/carbondioxide/", false);
+req.send();
+//req.onload = () => console.log(req.responseText)
+//var data = req.responseText;
+var data = JSON.parse(req.responseText);
+//req.onload = () => console.log(req.responseText)
+//console.log(data);
+
+var year = data.map(function(e) {
+  console.log(year);
+   return e.time;
+});
+var temp = data.map(function(e) {
+  console.log(temp);
+   return e.average_temp;
+})
+var carbon = data.map(function(e) {
+  console.log(carbon);
+   return e.carbon_dioxide;
+   
+});
+
+
+
+        
+var ctx = document.getElementById('myChart').getContext('2d');
+   var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+         labels: year,
+         datasets: [{
+            backgroundColor: 'rgb(129, 198, 2228)',
+            borderColor: 'rgb(0, 150, 215)',
+            data: temp
+         }]
+      },
+      options: {
+         responsive: 'true',
+      }
+   });
+        </script>
+      
+  </body>
+</html>

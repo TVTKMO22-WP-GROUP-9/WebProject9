@@ -2,6 +2,8 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var jwt = require('jsonwebtoken');
+var bcrypt = require('bcryptjs');
 
 //const bookRouter = require("./routes/book");
 const hadcrudRouter = require("./routes/hadcrud");
@@ -22,6 +24,7 @@ const sector = require("./routes/visualization5/sector.js");
 const sub_sector = require("./routes/visualization5/sub_sector.js");
 const sub_sector_further = require("./routes/visualization5/sub_sector_further.js");
 const user = require("./routes/User/user");
+const login = require("./routes/login/login.js");
 
 const visualization = require("./routes/Visualization/Visualization");
 const visualization_view = require("./routes/Visualization_view/visualization_view");
@@ -39,6 +42,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(authenticateToken);
 
 app.use("/reconstruction", reconstruction);
 
@@ -58,6 +63,8 @@ app.use("/sector", sector);
 app.use("/sub_sector", sub_sector);
 app.use("/sub_sector_further", sub_sector_further);
 app.use("/user", user);
+app.use("/login/", login);
+
 
 app.use("/visualization", visualization);
 app.use("/visualization_view", visualization_view);
@@ -67,9 +74,35 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something went wrong!");
 });
 
-const port = 229;
+module.exports = app;
+
+
+const port = 3001;
 app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
 });
 
-module.exports = app;
+//authentikoi tokenin
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  console.log("token = " + token);
+  
+  if (token == null) {
+    console.log ("unknown user");
+    next();
+  }
+  else {
+    jwt.verify(token, process.env.MY_TOKEN, (err, login_user) => {
+      console.log(err);
+  
+      if (err) console.log ("token error");
+      else console.log (login_user);
+      req.login_user = login_user;
+      next();
+     
+    });
+  }
+  
+}

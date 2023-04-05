@@ -1,0 +1,33 @@
+import Visualization3 from "./Components/Visualization3.js"
+import React, { useState, useEffect } from "react";
+import { Line } from "react-chartjs-2";
+import {
+  Chart,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+Chart.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+function App() {
+  return (
+    <div>
+
+        <Visualization3/>
+      </div>
+  );
+}
+
+export default App;
