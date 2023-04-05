@@ -26,6 +26,9 @@ const sub_sector_further = require("./routes/visualization5/sub_sector_further.j
 const user = require("./routes/User/user");
 const login = require("./routes/login/login.js");
 
+const visualization = require("./routes/Visualization/Visualization");
+const visualization_view = require("./routes/Visualization_view/visualization_view");
+
 var app = express();
 
 const helmet = require("helmet");
@@ -62,6 +65,9 @@ app.use("/sub_sector_further", sub_sector_further);
 app.use("/user", user);
 app.use("/login/", login);
 
+
+app.use("/visualization", visualization);
+app.use("/visualization_view", visualization_view);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
