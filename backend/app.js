@@ -87,16 +87,15 @@ function authenticateToken(req, res, next) {
   const token = authHeader && authHeader.split(" ")[1];
 
   console.log("token = " + token);
-  next();
-  //if (token == null) return res.sendStatus(401);
+  
+  if (token == null) console.log ("unknown user");
 
- /* jwt.verify(token, "this_is_your_secret_key", (err, user) => {
+  jwt.verify(token, "this_is_your_secret_key", (err, user) => {
     console.log(err);
 
-    //if (err) return res.sendStatus(403);
-
+    if (err) console.log ("token error");
     req.user = user;
-
+    next();
    
-  });*/
+  });
 }
