@@ -1,3 +1,4 @@
 /backend/node_modules/
 /backend/database_copy.js
 /backend/database_data.js
+/backend/env_code
