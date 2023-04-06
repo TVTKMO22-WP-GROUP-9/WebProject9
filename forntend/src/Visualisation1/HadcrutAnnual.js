@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
+import React, { useState, useEffect, useRef } from "react";
+import { Line, getDatasetAtEvent, getElementAtEvent } from "react-chartjs-2";
 import { Container, Col, Row } from "react-bootstrap";
 
 import {
@@ -35,11 +35,16 @@ function HadcrutAnnual() {
     const res3 = await fetch(
       "https://webproj9.oulu.azatotweb.com/hadcrud/NorthenAnnual"
     );
+    const res4 = await fetch(
+      "https://webproj9.oulu.azatotweb.com/reconstruction"
+    );
+
     const data1 = await res1.json();
     const data2 = await res2.json();
     const data3 = await res3.json();
+    const data4 = await res4.json();
 
-    console.log(data1, data2, data3); // log the fetched data to the console
+    console.log(data1, data2, data3, data4); // log the fetched data to the console
 
     const chartData = {
       labels: data1.map((item) => item.time),
@@ -47,23 +52,22 @@ function HadcrutAnnual() {
         {
           label: "GlobalAnnual",
           data: data1.map((item) => item.ucl),
-          fill: false,
           borderColor: "rgb(75, 192, 192)",
-          tension: 0.1,
         },
         {
           label: "SouthernAnnual",
           data: data2.map((item) => item.ucl),
-          fill: false,
           borderColor: "rgb(192, 75, 192)",
-          tension: 0.1,
         },
         {
-          label: "NorthenAnnual",
+          label: "NorthernAnnual",
           data: data3.map((item) => item.ucl),
-          fill: false,
           borderColor: "rgb(192, 192, 75)",
-          tension: 0.1,
+        },
+        {
+          label: "Reconstruction",
+          data: data4.map((item) => item.T),
+          borderColor: "rgb(192, 75, 75)",
         },
       ],
     };
@@ -75,29 +79,36 @@ function HadcrutAnnual() {
     fetchChartData();
   }, []);
 
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "CO2",
+      },
+    },
+    scales: {
+      x: {
+        type: "time",
+        time: {
+          unit: "year",
+        },
+      },
+      y: {
+        type: "linear",
+      },
+    },
+  };
+
   return (
     <Container>
       <Row className="d-flex justify-content-center">
         <Col>
-          <h1>GlobalAnnual</h1>
-        </Col>
-      </Row>
-      <Row className="d-flex justify-content-center">
-        <Col>
           {chartData.labels && chartData.datasets ? (
-            <Line
-              data={chartData}
-              options={{
-                layout: {
-                  padding: {
-                    top: 10,
-                    bottom: 10,
-                    left: 20,
-                    right: 20,
-                  },
-                },
-              }}
-            />
+            <Line data={chartData} options={options} />
           ) : (
             <p>Loading chart data...</p>
           )}

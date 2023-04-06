@@ -35,6 +35,7 @@ function HadcrutMonthly() {
     const res3 = await fetch(
       "https://webproj9.oulu.azatotweb.com/hadcrud/NorthenMonthly"
     );
+
     const data1 = await res1.json();
     const data2 = await res2.json();
     const data3 = await res3.json();
