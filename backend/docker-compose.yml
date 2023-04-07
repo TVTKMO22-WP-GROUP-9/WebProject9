@@ -7,7 +7,6 @@ services:
       context: .
       dockerfile: ./Dockerfile
     environment:
-      MY_TOKEN: lkHENC7rwYeJLxA79OHad7nVWJiknxTTDP4QiguV6fZiwzT638t1i1I3KaVEiZgGx0igtDSJOgVjr6YwHdEauQ==
 
     ports:
       - 229:229
