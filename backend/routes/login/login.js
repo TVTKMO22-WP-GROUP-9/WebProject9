@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const user = require("../../models/User/user_model");
 const login = require("../../models/login/login_model");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
@@ -23,7 +22,7 @@ router.post("/", function (request, response) {
       } else {
         /*console.log(dbResult[0].pin + " " + pin);*/
         //yllä oleva aiheuttaa errorin jos account id on väärä
-        if (dbResult.length > 0) {
+        if (dbResult[0].password_user.length > 0) {
           bcrypt.compare(
             password_user,
             dbResult[0].password_user,
@@ -33,7 +32,11 @@ router.post("/", function (request, response) {
                 const token = generateAccessToken({
                   login_user: request.body.login_user,
                 });
-                response.send(token);
+                const data = {
+                  token: token,
+                  user_id: dbResult[0].id_user,
+                };
+                response.json(data);
               } else {
                 console.log("wrong password");
                 response.send(false);
@@ -54,6 +57,7 @@ router.post("/", function (request, response) {
 
 function generateAccessToken(login_user) {
   dotenv.config();
+  console.log("my token: " + process.env.MY_TOKEN);
   return jwt.sign(login_user, process.env.MY_TOKEN, {
     expiresIn: "31536000s",
   });
