@@ -3,6 +3,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 var app = express();
 
@@ -37,12 +38,19 @@ const sector = require("./routes/visualization5/sector.js");
 const sub_sector = require("./routes/visualization5/sub_sector.js");
 const sub_sector_further = require("./routes/visualization5/sub_sector_further.js");
 const user = require("./routes/User/user");
+const registaration = require("./routes/registration/registration");
+
 const login = require("./routes/login/login.js");
 
 const visualization = require("./routes/Visualization/Visualization");
 const visualization_view = require("./routes/Visualization_view/visualization_view");
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
-app.use("/login/", login);
+app.use("/login", login);
 app.use("/reconstruction", reconstruction);
 app.use("/maunaAnnual", maunaAnnual);
 app.use("/mauanaMonthly", mauanaMonthly);
@@ -57,6 +65,7 @@ app.use("/sub_sector", sub_sector);
 app.use("/sub_sector_further", sub_sector_further);
 app.use("/visualization", visualization);
 app.use("/visualization_view", visualization_view);
+app.use("/registaration", registaration);
 
 app.use(authenticateToken);
 
