@@ -11,21 +11,20 @@ import {
   Navigate,
   Outlet,
 } from "react-router-dom";
-import { Container, Col, Row } from "react-bootstrap";
-import HadcrutAnnual from "./Visualisation1/HadcrutAnnual";
-import HadcrutMonthly from "./Visualisation1/HadcrutMonthly";
+
 import Reconstruction from "./Visualisation1/Reconstruction";
 import Icebergs from "./Visualisation2/Icebergs";
 import Error404 from "./Pages/error";
 import Navigation from "./Pages/Navigation";
 import Home from "./Pages/Home";
 import Page from "./Pages/NumberPage";
-import VisualizationForm from "./Pages/VisualizationForm";
 import Visualization1 from "./Visualisation1/Visualization1";
 import IceCores from "./Visualisation2/IceCores";
-import Login from "./Pages/Login";
 import LoginPage from "./Pages/Login";
 import UserPage from "./Pages/UserPage";
+import RegistrationForm from "./Pages/Registration";
+import VisualizationForm from "./Pages/MakeVisualization";
+import MyVisualizations from "./Pages/MyVisualizations";
 
 function App() {
   const [pages, setPages] = useState([]);
@@ -59,7 +58,13 @@ function App() {
                 <Route
                   key={page.id_visualization}
                   path={`/${page.url}`}
-                  element={<Page number={page.text} layout={page.layout} />}
+                  element={
+                    <Page
+                      number={page.lable}
+                      layout={page.layout}
+                      page={page}
+                    />
+                  }
                 />
               )
             )
@@ -70,10 +75,12 @@ function App() {
           <Route path="/HadcrutMonthly" element={<IceCores />} />
           <Route path="/Reconstruction" element={<Reconstruction />} />
           <Route path="/Icebergs" element={<Icebergs />} />
-          <Route path="/visInput" element={<VisualizationForm />} />
+          <Route path="/registration" element={<RegistrationForm />} />
+
           <Route element={<ProtectedRoute />}>
             <Route path="home" element={<UserPage />} />
-            <Route path="dashboard" element={<VisualizationForm />} />
+            <Route path="/makeVisualization" element={<VisualizationForm />} />
+            <Route path="/myVisualizations" element={<MyVisualizations />} />
           </Route>
 
           <Route path="/login" element={<LoginPage />} />
