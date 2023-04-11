@@ -20,6 +20,9 @@ class Home extends Component {
         <Link to="/HadcrutMonthly">
           <Button>View Hadcrut Monthly Data</Button>
         </Link>
+        <Link to="/Visualization3">
+          <Button>View Evolution of Global Temperature</Button>
+        </Link>
       </div>
     );
   }

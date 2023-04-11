@@ -13,6 +13,7 @@ const Navigation = () => {
             <Nav.Link href="/HadcrutMonthly">HadcrutMonthly</Nav.Link>
             <Nav.Link href="/Reconstruction">Reconstruction</Nav.Link>
             <Nav.Link href="/Icebergs">Icebergs</Nav.Link>
+            <Nav.Link href="/Visualization3">TemperatureEvolution</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

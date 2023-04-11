@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import { Container, Col, Row } from "react-bootstrap";
+
+
 import {
   Chart,
   CategoryScale,
@@ -20,8 +23,8 @@ Chart.register(
   Legend
 );
 
-function ChartVisualization3() {
-  const [chartData, setChartData] = useState({});
+function Visualization3() {
+  const [data, setChartData] = useState([]);
 
   useEffect(() => {
     const fetchChartData = async () => {
@@ -30,49 +33,83 @@ function ChartVisualization3() {
 
       console.log(data); // log the fetched data to the console
 
-      const chartData = {
-        labels: data.map((item) => item.time),
-        datasets: [
-          {
-            label: "Co2",
-            data: data.map((item) => item.carbon_dioxide),
-            fill: false,
-            borderColor: "rgb(75, 192, 192)",
-            tension: 0.1,
-          },
-          {
-            label: "Average Temperature (celcius)",
-            data: data.map((item) => item.average_temp),
-            fill: false,
-            borderColor: "rgb(255, 0, 0)",
-            tension: 0.1,
-          },
-        ],
-      };
 
-      setChartData(chartData);
+
+      setChartData(data);
     };
 
     fetchChartData();
   }, []);
+
+
+  const chartData = {
+    labels: data.map((item) => item.time),
+    datasets: [
+      {
+        label: "Co2 (ppm)",
+        data: data.map((item) => item.carbon_dioxide),
+        fill: false,
+        borderColor: "rgb(75, 192, 192)",
+        tension: 0,
+        yAxisID: "y1",
+        borderWidth: 3,
+        pointStyle: false,
+      },
+      {
+        label: "Temperature (celcius)",
+        data: data.map((item) => item.average_temp),
+        fill: false,
+        borderColor: "rgb(255, 0, 0)",
+        tension: 0,
+        yAxisID: "y",
+        borderWidth: 3,
+        pointStyle: false,
+      },
+    ],
+  };
+
+  
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Evolution of Global Surface Temperature & Carbon Dioxide levels"
+      },
+    },
+    scales: {
+      y: {
+        type: "linear",
+        position: "right",
+        text: "Average Global Temperature",
+      },
+      y1: {
+        type: "linear",
+        position: "left",
+        text: "Co2 (ppm)",
+      },
+    },
+  };
+
   return (
-    <div>
-      {chartData.labels && chartData.datasets ? (
-        <Line data={chartData} />
-      ) : (
-        <p>Loading Visualization3</p>
-      )}
-    </div>
+    <Container>
+      <Row className="d-flex justify-content-center">
+        <Col>
+          {chartData.labels && chartData.datasets ? (
+            <Line
+              data={chartData} options={options}
+
+            />
+          ) : (
+            <p>Loading chart data...</p>
+          )}
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
-export default function Visualization3()
-{
-  return(
-    <section>
-      <div style = {{width: 800}}>
-        <ChartVisualization3 />
-      </div>
-    </section>
-  );
-}
+export default Visualization3;
