@@ -39,11 +39,10 @@ const sub_sector = require("./routes/visualization5/sub_sector.js");
 const sub_sector_further = require("./routes/visualization5/sub_sector_further.js");
 const user = require("./routes/User/user");
 const registaration = require("./routes/registration/registration");
-
 const login = require("./routes/login/login.js");
-
 const visualization = require("./routes/Visualization/Visualization");
 const visualization_view = require("./routes/Visualization_view/visualization_view");
+const last_visualization = require("./routes/Visualization/last_visualization");
 app.use(
   cors({
     origin: "*",
@@ -64,26 +63,13 @@ app.use("/sector", sector);
 app.use("/sub_sector", sub_sector);
 app.use("/sub_sector_further", sub_sector_further);
 app.use("/visualization", visualization);
+app.use("/last_visualization", last_visualization);
 app.use("/visualization_view", visualization_view);
 app.use("/registaration", registaration);
-
 app.use(authenticateToken);
-
 app.use("/user", user);
 
-/*app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something went wrong!");
-});*/
-
 module.exports = app;
-
-//Please remove in the comments, not delete.
-
-/*const port = 3001;
-app.listen(port, () => {
-  console.log(`Listening on port ${port}...`);
-});*/
 
 const port = 229;
 app.listen(port, () => {
