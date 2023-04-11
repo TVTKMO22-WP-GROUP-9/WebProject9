@@ -26,6 +26,7 @@ import IceCores from "./Visualisation2/IceCores";
 import Login from "./Pages/Login";
 import LoginPage from "./Pages/Login";
 import UserPage from "./Pages/UserPage";
+import Visualization3 from "./Visualization3/Visualization3";
 
 function App() {
   const [pages, setPages] = useState([]);
@@ -66,6 +67,7 @@ function App() {
           )}
           <Route path="/Visualization1" element={<Visualization1 />} />
           <Route path="/Visualization2" element={<IceCores />} />
+          <Route path="/Visualization3" element={<Visualization3 />} />
 
           <Route path="/HadcrutMonthly" element={<IceCores />} />
           <Route path="/Reconstruction" element={<Reconstruction />} />
