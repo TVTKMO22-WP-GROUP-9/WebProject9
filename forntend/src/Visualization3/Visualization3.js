@@ -41,11 +41,11 @@ function Visualization3() {
     fetchChartData();
   }, []);
 
-
   const chartData = {
     labels: data.map((item) => item.time),
+    
     datasets: [
-      {
+     {
         label: "Co2 (ppm)",
         data: data.map((item) => item.carbon_dioxide),
         fill: false,
@@ -65,6 +65,26 @@ function Visualization3() {
         borderWidth: 3,
         pointStyle: false,
       },
+      {
+        label: "Events",
+        data: //data.map((item) => item.event), 
+       [
+          {x: 45,y: 4, ttip: "Paskaaaaaaaaa"},
+          {x: 100,y: 4, ttip: "Lisaa paskaaa"},
+          {x: 150,y: 4, ttip: "Vihreaa paskaaa"},
+          {x: 225,y: 4, ttip: "Kovaa paskaaa"},
+          {x: 600,y: 4, ttip: "Markaa paskaaa"},
+        ],
+     
+        fill: false,
+        borderColor: "rgb(0, 0, 255)",
+        tension: 0,
+        borderWidth: 4,
+        pointStyle: "triangle",
+        yAxisID: "y",
+        showLine: false,
+        parsing: false,
+      },
     ],
   };
 
@@ -79,7 +99,17 @@ function Visualization3() {
         display: true,
         text: "Evolution of Global Surface Temperature & Carbon Dioxide levels"
       },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            console.log(context)
+            return context.raw.ttip;
+          }
+        }
+      }
+     
     },
+
     scales: {
       y: {
         type: "linear",
@@ -91,6 +121,14 @@ function Visualization3() {
         position: "left",
         text: "Co2 (ppm)",
       },
+      xAxes: [{
+        type: "linear",
+        ticks: {
+          suggestedMin: 0,
+          suggestedMax: 10,
+          stepSize: 2
+        }
+      }]    
     },
   };
 
