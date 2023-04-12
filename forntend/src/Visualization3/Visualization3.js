@@ -69,11 +69,11 @@ function Visualization3() {
         label: "Events",
         data: //data.map((item) => item.event), 
        [
-          {x: 45,y: 4, ttip: "Paskaaaaaaaaa"},
-          {x: 100,y: 4, ttip: "Lisaa paskaaa"},
-          {x: 150,y: 4, ttip: "Vihreaa paskaaa"},
-          {x: 225,y: 4, ttip: "Kovaa paskaaa"},
-          {x: 600,y: 4, ttip: "Markaa paskaaa"},
+          {x: 45,y: 4, ttip: "Testi1 "},
+          {x: 100,y: 4, ttip: "Testi 2"},
+          {x: 150,y: 4, ttip: "Vihreaa "},
+          {x: 225,y: 4, ttip: "Kovaa "},
+          {x: 600,y: 4, ttip: "Mummot"},
         ],
      
         fill: false,
