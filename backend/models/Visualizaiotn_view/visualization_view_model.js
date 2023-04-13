@@ -6,7 +6,7 @@ const book = {
   },
   getById: function (id, callback) {
     return db.query(
-      "select * from visualization_view where id_visualization_view=?",
+      "select * from visualization_view where visualization_id=?",
       [id],
       callback
     );

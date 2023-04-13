@@ -13,7 +13,7 @@ const book = {
   },
   add: function (visualization, callback) {
     return db.query(
-      "insert into visualization (lable, sideBySide, url,text,user_id) values(?,?,?)",
+      "insert into visualization (lable, sideBySide, url,text,user_id) values(?,?,?,?,?)",
       [
         visualization.lable,
         visualization.sideBySide,
