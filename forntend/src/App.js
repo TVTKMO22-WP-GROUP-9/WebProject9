@@ -25,6 +25,7 @@ import UserPage from "./Pages/UserPage";
 import RegistrationForm from "./Pages/Registration";
 import VisualizationForm from "./Pages/MakeVisualization";
 import MyVisualizations from "./Pages/MyVisualizations";
+import Visualization3 from "./Visualization3/Visualization3";
 
 function App() {
   const [pages, setPages] = useState([]);
