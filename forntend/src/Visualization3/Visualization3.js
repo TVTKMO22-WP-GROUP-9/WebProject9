@@ -24,7 +24,9 @@ Chart.register(
 );
 
 function Visualization3() {
+  
   const [data, setChartData] = useState([]);
+
 
   useEffect(() => {
     const fetchChartData = async () => {
@@ -34,15 +36,17 @@ function Visualization3() {
       console.log(data); // log the fetched data to the console
 
 
-
+      
       setChartData(data);
     };
 
     fetchChartData();
   }, []);
+  
 
   const chartData = {
     labels: data.map((item) => item.time),
+    
     
     datasets: [
      {
@@ -52,7 +56,7 @@ function Visualization3() {
         borderColor: "rgb(75, 192, 192)",
         tension: 0,
         yAxisID: "y1",
-        borderWidth: 3,
+        borderWidth: 2,
         pointStyle: false,
       },
       {
@@ -62,20 +66,16 @@ function Visualization3() {
         borderColor: "rgb(255, 0, 0)",
         tension: 0,
         yAxisID: "y",
-        borderWidth: 3,
+        borderWidth: 2,
         pointStyle: false,
       },
       {
         label: "Events",
-        data: //data.map((item) => item.event), 
-       [
-          {x: 45,y: 4, ttip: "Testi1 "},
-          {x: 100,y: 4, ttip: "Testi 2"},
-          {x: 150,y: 4, ttip: "Vihreaa "},
-          {x: 225,y: 4, ttip: "Kovaa "},
-          {x: 600,y: 4, ttip: "Mummot"},
-        ],
-     
+        data: data.map((item) => ({
+          time: item.time, 
+          value: item.point,
+          ttip: item.event,
+        })),
         fill: false,
         borderColor: "rgb(0, 0, 255)",
         tension: 0,
@@ -83,8 +83,13 @@ function Visualization3() {
         pointStyle: "triangle",
         yAxisID: "y",
         showLine: false,
-        parsing: false,
+        scrollY: 4,
+        parsing: {
+          xAxisKey: "time",
+          yAxisKey: "value",
+        },
       },
+
     ],
   };
 
@@ -99,7 +104,7 @@ function Visualization3() {
         display: true,
         text: "Evolution of Global Surface Temperature & Carbon Dioxide levels"
       },
-      tooltip: {
+     tooltip: {
         callbacks: {
           label: (context) => {
             console.log(context)
@@ -121,14 +126,7 @@ function Visualization3() {
         position: "left",
         text: "Co2 (ppm)",
       },
-      xAxes: [{
-        type: "linear",
-        ticks: {
-          suggestedMin: 0,
-          suggestedMax: 10,
-          stepSize: 2
-        }
-      }]    
+  
     },
   };
 
