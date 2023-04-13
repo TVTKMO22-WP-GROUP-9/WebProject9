@@ -15,6 +15,7 @@ const Navigation = () => {
           <Nav className="me-auto">
             <Nav.Link href="/Visualization1">Visualization1</Nav.Link>
             <Nav.Link href="/Visualization2">Visualization2</Nav.Link>
+            <Nav.Link href="/Visualization3">Visualization3</Nav.Link>
           </Nav>
           <Nav>
             {localStorage.getItem("token") ? (
