@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import { Container, Col, Row } from "react-bootstrap";
 
-
 import {
   Chart,
   CategoryScale,
@@ -24,32 +23,28 @@ Chart.register(
 );
 
 function Visualization3() {
-  
   const [data, setChartData] = useState([]);
-
 
   useEffect(() => {
     const fetchChartData = async () => {
-      const res = await fetch("http://78.27.93.164:229/carbondioxide");
+      const res = await fetch(
+        "https://webproj9.oulu.azatotweb.com/carbondioxide"
+      );
       const data = await res.json();
 
       console.log(data); // log the fetched data to the console
 
-
-      
       setChartData(data);
     };
 
     fetchChartData();
   }, []);
-  
 
   const chartData = {
     labels: data.map((item) => item.time),
-    
-    
+
     datasets: [
-     {
+      {
         label: "Co2 (ppm)",
         data: data.map((item) => item.carbon_dioxide),
         fill: false,
@@ -72,7 +67,7 @@ function Visualization3() {
       {
         label: "Events",
         data: data.map((item) => ({
-          time: item.time, 
+          time: item.time,
           value: item.point,
           ttip: item.event,
         })),
@@ -89,11 +84,9 @@ function Visualization3() {
           yAxisKey: "value",
         },
       },
-
     ],
   };
 
-  
   const options = {
     responsive: true,
     plugins: {
@@ -102,17 +95,16 @@ function Visualization3() {
       },
       title: {
         display: true,
-        text: "Evolution of Global Surface Temperature & Carbon Dioxide levels"
+        text: "Evolution of Global Surface Temperature & Carbon Dioxide levels",
       },
-     tooltip: {
+      tooltip: {
         callbacks: {
           label: (context) => {
-            console.log(context)
+            console.log(context);
             return context.raw.ttip;
-          }
-        }
-      }
-     
+          },
+        },
+      },
     },
 
     scales: {
@@ -126,7 +118,6 @@ function Visualization3() {
         position: "left",
         text: "Co2 (ppm)",
       },
-  
     },
   };
 
@@ -135,10 +126,7 @@ function Visualization3() {
       <Row className="d-flex justify-content-center">
         <Col>
           {chartData.labels && chartData.datasets ? (
-            <Line
-              data={chartData} options={options}
-
-            />
+            <Line data={chartData} options={options} />
           ) : (
             <p>Loading chart data...</p>
           )}

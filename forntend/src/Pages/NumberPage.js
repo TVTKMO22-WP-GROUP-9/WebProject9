@@ -26,11 +26,8 @@ const NumberPage = ({ number, page }) => {
 
   return (
     <Container>
-      <h1>{page.label}</h1>
+      <h1>{page.lable}</h1>
       <p>{page.text}</p>
-      <p>{page.id_visualization}</p>
-      <p>{page.side}</p>
-
       {page.sideBySide === 1 ? (
         <SideBySide visualizationData={visualizationData} />
       ) : (

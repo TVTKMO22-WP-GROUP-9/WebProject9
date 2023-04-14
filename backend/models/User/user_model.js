@@ -35,7 +35,37 @@ const user = {
     });
   },
   delete: function (id, callback) {
-    return db.query("delete from user where login_user=?", [id], callback);
+    db.query(
+      "DELETE FROM visualization_view WHERE visualization_id IN (SELECT id_visualization FROM visualization WHERE user_id = ?)",
+      [id],
+      function (error, results, fields) {
+        if (error) {
+          console.log(error);
+          return callback(error);
+        }
+        db.query(
+          "DELETE FROM visualization WHERE user_id = ?",
+          [id],
+          function (error, results, fields) {
+            if (error) {
+              console.log(error);
+              return callback(error);
+            }
+            db.query(
+              "DELETE FROM user WHERE id_user = ?",
+              [id],
+              function (error, results, fields) {
+                if (error) {
+                  console.log(error);
+                  return callback(error);
+                }
+                return callback(null, results);
+              }
+            );
+          }
+        );
+      }
+    );
   },
   update: function (id, user, callback) {
     bcrypt.hash(user.password_user, saltRounds, function (err, hash) {

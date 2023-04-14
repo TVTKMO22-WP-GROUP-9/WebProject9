@@ -12,17 +12,24 @@ class Home extends Component {
             <p>This is the home page.</p>
           </Col>
         </Row>
+
         <Row>
-          <Col className="text-center">
-            <Link to="/login">
-              <Button variant="outline-primary" className="mr-3">
-                Login
-              </Button>
-            </Link>
-            <Link to="/registration">
-              <Button variant="outline-secondary">Register</Button>
-            </Link>
-          </Col>
+          {localStorage.getItem("token") ? (
+            <></>
+          ) : (
+            <>
+              <Col className="text-center">
+                <Link to="/login">
+                  <Button variant="outline-primary" className="mr-3">
+                    Login
+                  </Button>
+                </Link>
+                <Link to="/registration">
+                  <Button variant="outline-secondary">Register</Button>
+                </Link>
+              </Col>
+            </>
+          )}
         </Row>
       </Container>
     );

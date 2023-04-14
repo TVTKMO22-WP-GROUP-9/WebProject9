@@ -11,6 +11,8 @@ import {
   Navigate,
   Outlet,
 } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Reconstruction from "./Visualisation1/Reconstruction";
 import Icebergs from "./Visualisation2/Icebergs";
@@ -89,6 +91,7 @@ function App() {
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
+      <ToastContainer />
     </div>
   );
 }

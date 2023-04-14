@@ -25,10 +25,20 @@ const book = {
     );
   },
   delete: function (id, callback) {
-    return db.query(
-      "delete from visualization where id_visualization=?",
+    db.query(
+      "DELETE FROM visualization_view WHERE visualization_id = ?",
       [id],
-      callback
+      (error, results, fields) => {
+        if (error) {
+          callback(error, null);
+        } else {
+          db.query(
+            "DELETE FROM visualization WHERE id_visualization = ?",
+            [id],
+            callback
+          );
+        }
+      }
     );
   },
   update: function (id, visualization, callback) {

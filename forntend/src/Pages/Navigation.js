@@ -20,6 +20,7 @@ const Navigation = () => {
           <Nav>
             {localStorage.getItem("token") ? (
               <>
+                <Nav.Link href="/home">Home</Nav.Link>
                 <Nav.Link href="/makeVisualization">Create</Nav.Link>
                 <Nav.Link href="/myVisualizations">My Pages</Nav.Link>
                 <Button variant="outline-light" href="/" onClick={handleLogout}>
