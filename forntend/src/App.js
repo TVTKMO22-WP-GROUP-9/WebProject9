@@ -28,6 +28,7 @@ import RegistrationForm from "./Pages/Registration";
 import VisualizationForm from "./Pages/MakeVisualization";
 import MyVisualizations from "./Pages/MyVisualizations";
 import Visualization3 from "./Visualization3/Visualization3";
+import SectorData from "./Visualization5/SectorData";
 
 function App() {
   const [pages, setPages] = useState([]);
@@ -75,6 +76,7 @@ function App() {
           <Route path="/Visualization1" element={<Visualization1 />} />
           <Route path="/Visualization2" element={<IceCores />} />
           <Route path="/Visualization3" element={<Visualization3 />} />
+          <Route path="/Visualization5" element={<SectorData />} />
 
           <Route path="/HadcrutMonthly" element={<IceCores />} />
           <Route path="/Reconstruction" element={<Reconstruction />} />

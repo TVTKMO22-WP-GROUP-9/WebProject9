@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Button, Form, Spinner, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import loginImage from "./login.jpg";
+import "./LoginPage.css";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -40,43 +42,50 @@ const LoginPage = () => {
   };
 
   return (
-    <Container className="d-flex justify-content-center">
-      <div>
-        <h2>Login</h2>
-        {isLoading ? (
-          <Spinner animation="border" />
-        ) : (
-          <Form onSubmit={handleLogin}>
-            <Form.Group controlId="username">
-              <Form.Label>Username:</Form.Label>
-              <Form.Control
-                type="text"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="password">
-              <Form.Label>Password:</Form.Label>
-              <Form.Control
-                type="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">
+    <div className="login-page">
+      <div className="form-container">
+        <img src={loginImage} alt="login" className="login-image" />
+        <form className="form" onSubmit={handleLogin}>
+          <h1 className="login-message">Login to Continue</h1>
+          <div className="form-group">
+            <input
+              type="text"
+              placeholder="Username"
+              className="form-control"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              placeholder="Password"
+              className="form-control"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+            />
+          </div>
+          {isLoading ? (
+            <button type="submit" className="btn" disabled>
+              <i className="fa fa-spinner fa-spin"></i> Logging in...
+            </button>
+          ) : (
+            <button type="submit" className="btn">
               Login
-            </Button>
-            <Button
-              variant="link"
-              onClick={() => history("/registration")}
-              style={{ marginLeft: "10px" }}>
-              Register
-            </Button>
-          </Form>
-        )}
-        <p>{responseText}</p>
+            </button>
+          )}
+              <div className="mt-3 text-center">
+                <p>
+                  Not registered?{" "}
+                  <Link to="/registration">Create an account</Link>
+                </p>
+                </div>
+          {responseText && <p className="error">{responseText}</p>}
+        </form>
       </div>
-    </Container>
+    </div>
   );
 };
 

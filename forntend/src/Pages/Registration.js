@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Form, Row, Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import "./RegistrationPage.css";
+import RegisterImage from "./karhu.jpg";
 
 const RegistrationForm = () => {
   const [formValues, setFormValues] = useState({
@@ -50,85 +53,120 @@ const RegistrationForm = () => {
   const navigation = useNavigate();
 
   return (
-    <Container className="d-flex justify-content-center align-items-center">
-      <Row>
-        <Col>
-          <h1>Registration</h1>
-          <br></br>
-
-          {registrationSuccess ? (
-            <div>
-              <p>Registration successful! Please log in.</p>
-              <Button variant="primary" onClick={navigateToLogin}>
-                Log in
-              </Button>
-            </div>
-          ) : (
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="formLoginUser">
-                <Form.Label>Login User</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="login_user"
-                  value={formValues.login_user}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-              <Form.Group controlId="formFirstName">
-                <Form.Label>First Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="fname_user"
-                  value={formValues.fname_user}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-              <Form.Group controlId="formLastName">
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="lname_user"
-                  value={formValues.lname_user}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-              <Form.Group controlId="formEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  name="email_user"
-                  value={formValues.email_user}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-              <Form.Group controlId="formPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  name="password_user"
-                  value={formValues.password_user}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-              {errorMessage && (
-                <div style={{ color: "red", marginBottom: "1rem" }}>
-                  {errorMessage}
+    <div className="container-fluid">
+      <div className="row justify-content-center align-items-center">
+        <div className="col-lg-4 col-md-6 col-sm-8">
+          <img src={RegisterImage} alt="Register" className="img-fluid mb-4" />
+        </div>
+        <div className="col-lg-4 col-md-6 col-sm-8">
+          <div className="card">
+            <div className="card-body">
+              <h4 className="card-title mb-4 mt-1">Create Account</h4>
+              {registrationSuccess ? (
+                <div>
+                  <p>Registration successful! Please log in.</p>
+                  <Button variant="primary" onClick={navigateToLogin}>
+                    Log in
+                  </Button>
                 </div>
+              ) : (
+                <Form onSubmit={handleSubmit}>
+                  <Row>
+                    <Col md={12}>
+                      <Form.Group controlId="formLoginUser" className="mb-3">
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="login_user"
+                          value={formValues.login_user}
+                          onChange={handleChange}
+                          placeholder="Username"
+                          required
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={12}>
+                      <Form.Group controlId="formFirstName" className="mb-3">
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="fname_user"
+                          value={formValues.fname_user}
+                          onChange={handleChange}
+                          placeholder="First Name"
+                          required
+                        />
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md={12}>
+                      <Form.Group controlId="formLastName" className="mb-3">
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="lname_user"
+                          value={formValues.lname_user}
+                          onChange={handleChange}
+                          placeholder="Last Name"
+                          required
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={12}>
+                      <Form.Group controlId="formEmail" className="mb-3">
+                        <input
+                          type="email"
+                          className="form-control"
+                          name="email_user"
+                          value={formValues.email_user}
+                          onChange={handleChange}
+                          placeholder="Email"
+                          required
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={12}>
+                      <Form.Group controlId="formPassword" className="mb-3">
+                        <input
+                          type="password"
+                          className="form-control"
+                          name="password_user"
+                          value={formValues.password_user}
+                          onChange={handleChange}
+                          placeholder="Password"
+                          required
+                        />
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    className="btn btn-block"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Submitting..." : "Sign Up"}
+                  </Button>
+                  {errorMessage && (
+                    <div style={{ color: "red", marginTop: "1rem" }}>
+                      {errorMessage}
+                    </div>
+                  )}
+                </Form>
               )}
-              <Button variant="primary" type="submit" disabled={isSubmitting}>
-                Register
-              </Button>
-            </Form>
-          )}
-        </Col>
-      </Row>
-    </Container>
+              <div className="mt-3 text-center">
+                <p>
+                  Already have an account?{" "}
+                  <Link to="/login">Log in</Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
-
-export default RegistrationForm;
+  
+  export default RegistrationForm;
