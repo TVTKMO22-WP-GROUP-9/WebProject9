@@ -30,7 +30,7 @@ function Visualization3() {
 
   useEffect(() => {
     const fetchChartData = async () => {
-      const res = await fetch("http://78.27.93.164:229/carbondioxide");
+      const res = await fetch("https://webproj9.oulu.azatotweb.com/carbondioxide");
       const data = await res.json();
 
       console.log(data); // log the fetched data to the console
@@ -79,7 +79,7 @@ function Visualization3() {
         fill: false,
         borderColor: "rgb(0, 0, 255)",
         tension: 0,
-        borderWidth: 4,
+        borderWidth: 5,
         pointStyle: "triangle",
         yAxisID: "y",
         showLine: false,
@@ -96,6 +96,7 @@ function Visualization3() {
   
   const options = {
     responsive: true,
+    maintainAspectRatio: true,
     plugins: {
       legend: {
         position: "top",
@@ -119,12 +120,27 @@ function Visualization3() {
       y: {
         type: "linear",
         position: "right",
-        text: "Average Global Temperature",
+        title:
+         {
+          text: "Temperature (°C)",
+          display: true,
+        },
       },
       y1: {
         type: "linear",
         position: "left",
-        text: "Co2 (ppm)",
+        title: 
+        {
+          text: "Co2 (ppm)",
+          display: true,
+        },
+      },
+      x: {
+        title: 
+        {
+          text: "Years ago",
+          display: true,
+        },
       },
   
     },
