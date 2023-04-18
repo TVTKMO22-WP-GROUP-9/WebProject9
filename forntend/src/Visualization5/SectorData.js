@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Doughnut } from "react-chartjs-2";
+import React, { useState, useEffect, useRef } from "react";
+import { Doughnut, getDatasetAtEvent } from "react-chartjs-2";
 import {
   Chart, 
   Tooltip, 
@@ -17,6 +17,10 @@ Chart.register(
 
 function SectorData() {
   const [chartData, setChartData] = useState({});
+  const chartRef = useRef();
+  const onClick = (event) => {
+    console.log(getDatasetAtEvent(chartRef.current, event));
+  }
 
   useEffect(() => {
     const fetchChartData = async () => {
@@ -42,67 +46,7 @@ function SectorData() {
               "#28B463"
             ],
             borderWidth: 1,           
-          },
-          {
-            label: "Co2_sub",
-            data: data2.map((item) => item["Share of global greenhouse gas emissions (%)"]),
-            backgroundColor: [
-              "#FFCE56",
-              "#36A2EB",
-              "#FF6384",
-              "#28B463",
-              "#A93226",
-              "#CB4335",
-              "#884EA0",
-              "#7D3C98",
-              "#2471A3",
-              "#2E86C1",
-              "#17A589",
-              "#138D75",
-              "#D4AC0D",
-              "#D68910",
-              "#CA6F1E",
-              "#BA4A00",
-              "#28B463"
-            ],
-            borderWidth: 1,
-          },
-          {
-            label: "Co2_further",
-            data: data3.map((item) => item["Share of global greenhouse gas emissions (%)"]),
-            backgroundColor: [
-              "#FFCE56",
-              "#36A2EB",
-              "#FF6384",
-              "#28B463",
-              "#A93226",
-              "#CB4335",
-              "#884EA0",
-              "#7D3C98",
-              "#2471A3",
-              "#2E86C1",
-              "#17A589",
-              "#138D75",
-              "#D4AC0D",
-              "#D68910",
-              "#CA6F1E",
-              "#BA4A00",
-              "#28B463",
-              "#C39BD3",
-              "#FAD7A0",
-              "#A9CCE3",
-              "#117864",
-              "#935116",
-              "#D98880",
-              "#E59866",
-              "#7F8C8D",
-              "#F9E79F",
-              "#943126",
-              "#FF6F00",
-              "#7DCEA0"
-            ],
-            borderWidth: 1,
-          },                  
+          },                
         ],        
       };
 
@@ -112,35 +56,63 @@ function SectorData() {
     fetchChartData();
   }, []);
 
-  return (
-    <div>
-      {chartData.labels && chartData.datasets ? (
-        <Doughnut
-
-          data={chartData}
-          options={{
-            plugins: {
-              title: {
-                display: true,
-                text: "Global greenhouse gas emissions (%)",
-              },
-              legend: {
-                position: "top",            
-            layout: {
+return (
+  <div>
+    {chartData.labels && chartData.datasets ? (
+      <Doughnut
+        ref={chartRef}
+        data={chartData}
+        onClick={onClick}
+        options={{
+          plugins: {
+            title: {
+              display: true,
+              text: "Global greenhouse gas emissions (%)",
               padding: {
                 top: 10,
                 bottom: 10,
-                left: 20,
-                right: 20,
+              },
+              font: {
+                size: 18,
               },
             },
-          }}}}
-        />
-      ) : (
-        <p>Loading chart data...</p>
-      )}
-    </div>
-  );
+            subtitle: {
+              display: true,
+              text: "Click a sector to get further information",
+              padding: {
+                top: 5,
+                bottom: 20,
+              },
+              font: {
+                size: 14,
+              },
+            },
+            legend: {
+              position: "top",
+              labels: {
+                font: {
+                  size: 14,
+                },
+              },
+              layout: {
+                padding: {
+                  top: 10,
+                  bottom: 10,
+                  left: 20,
+                  right: 20,
+                },
+              },
+            },
+          },
+          responsive: true,
+          maintainAspectRatio: false,
+        }}
+      />
+    ) : (
+      <p>Loading chart data...</p>
+    )}
+  </div>
+);
 }
 
 export default SectorData;

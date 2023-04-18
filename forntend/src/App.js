@@ -29,6 +29,8 @@ import VisualizationForm from "./Pages/MakeVisualization";
 import MyVisualizations from "./Pages/MyVisualizations";
 import Visualization3 from "./Visualization3/Visualization3";
 import SectorData from "./Visualization5/SectorData";
+import SectorSub from "./Visualization5/SectorSub";
+import SectorFurther from "./Visualization5/SectorFurther";
 
 function App() {
   const [pages, setPages] = useState([]);
@@ -82,6 +84,8 @@ function App() {
           <Route path="/Reconstruction" element={<Reconstruction />} />
           <Route path="/Icebergs" element={<Icebergs />} />
           <Route path="/registration" element={<RegistrationForm />} />
+          <Route path="/SectorSub" element={<SectorSub />} />
+          <Route path="/SectorFurther" element={<SectorFurther />} />
 
           <Route element={<ProtectedRoute />}>
             <Route path="home" element={<UserPage />} />
