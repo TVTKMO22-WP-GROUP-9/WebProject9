@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import { Button, Form, Container, Col, Row } from "react-bootstrap";
+import {
+  Button,
+  Form,
+  Container,
+  Col,
+  Row,
+  Input,
+  InputGroup,
+} from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -21,6 +29,7 @@ const VisualizationForm = () => {
   const [sideBySide, setSideBySide] = useState(false);
   const [id_visualization, setId_visualization] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [countryInputs, setCountryInputs] = useState([]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -98,6 +107,7 @@ const VisualizationForm = () => {
           visualization_id: id,
           display_order: index + 1,
           line_name: option.value,
+          text: countryInputs[index],
         };
 
         return fetch("https://webproj9.oulu.azatotweb.com/visualization_view", {
@@ -135,6 +145,17 @@ const VisualizationForm = () => {
     navigate("/" + url);
 
     window.location.reload();
+  };
+
+  const handleCountryInputChange = (event, index) => {
+    // copy the current country inputs array
+    const newCountryInputs = [...countryInputs];
+
+    // update the input value at the specified index
+    newCountryInputs[index] = event.target.value;
+
+    // set the new country inputs array
+    setCountryInputs(newCountryInputs);
   };
 
   return (
@@ -179,6 +200,22 @@ const VisualizationForm = () => {
                 onChange={(event) => setVisualizationDesc(event.target.value)}
               />
             </Form.Group>
+
+            {visSelection.map((country, index) => (
+              <InputGroup className="mb-3" key={country.value}>
+                <InputGroup.Text id="basic-addon1">
+                  Text for {country.label}
+                </InputGroup.Text>
+                <Form.Control
+                  as="textarea"
+                  rows={1}
+                  onChange={(event) => handleCountryInputChange(event, index)}
+                  placeholder="Text"
+                  aria-label="Text"
+                  aria-describedby="basic-addon1"
+                />
+              </InputGroup>
+            ))}
             {submitted ? (
               <div>
                 <Button variant="success" onClick={OpnNewPage}>

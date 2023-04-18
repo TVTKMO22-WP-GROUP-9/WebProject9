@@ -13,11 +13,12 @@ const book = {
   },
   add: function (visualization, callback) {
     return db.query(
-      "insert into visualization_view ( visualization_id,display_order,line_name) values(?,?,?)",
+      "insert into visualization_view ( visualization_id,display_order,line_name, text) values(?,?,?,?)",
       [
         visualization.visualization_id,
         visualization.display_order,
         visualization.line_name,
+        visualization.text,
       ],
       callback
     );

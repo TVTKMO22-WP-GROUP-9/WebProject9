@@ -37,7 +37,7 @@ const MyVisualizations = () => {
       })
       .then((response) => {
         setPages(pages.filter((page) => page.id_visualization !== id));
-        toast.success("Visualization" + lable + " deleted successfully!");
+        toast.success("Visualization " + lable + " deleted successfully!");
       })
       .catch((error) => {
         console.error(error);
