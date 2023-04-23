@@ -5,7 +5,7 @@ import "chartjs-adapter-luxon";
 import { Line } from "react-chartjs-2";
 import { DateTime } from "luxon";
 
-const HadcrutReconstructionMonthly = () => {
+const HadcrutReconstructionAnnual = () => {
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
   const [data3, setData3] = useState([]);
@@ -14,13 +14,13 @@ const HadcrutReconstructionMonthly = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res1 = await fetch(
-        "https://webproj9.oulu.azatotweb.com/hadcrud/GlobalMonthly"
+        "https://webproj9.oulu.azatotweb.com/hadcrud/GlobalAnnual"
       );
       const res2 = await fetch(
-        "https://webproj9.oulu.azatotweb.com/hadcrud/SouthernMonthly"
+        "https://webproj9.oulu.azatotweb.com/hadcrud/SouthernAnnual"
       );
       const res3 = await fetch(
-        "https://webproj9.oulu.azatotweb.com/hadcrud/NorthenMonthly"
+        "https://webproj9.oulu.azatotweb.com/hadcrud/NorthenAnnual"
       );
       const res4 = await fetch(
         "https://webproj9.oulu.azatotweb.com/reconstruction"
@@ -45,7 +45,9 @@ const HadcrutReconstructionMonthly = () => {
       {
         label: "GlobalAnnual",
         data: data1.map((item) => ({
-          time: DateTime.fromISO(item.time),
+          time: DateTime.fromObject({
+            year: item.time,
+          }).toJSDate(),
           value: item.ucl.toString(),
         })),
         borderColor: "rgb(75, 192, 192)",
@@ -58,8 +60,9 @@ const HadcrutReconstructionMonthly = () => {
       {
         label: "SouthernAnnual",
         data: data2.map((item) => ({
-          time: DateTime.fromISO(item.time),
-
+          time: DateTime.fromObject({
+            year: item.time,
+          }).toJSDate(),
           value: item.ucl,
         })),
         borderColor: "rgb(192, 75, 192)",
@@ -72,8 +75,9 @@ const HadcrutReconstructionMonthly = () => {
       {
         label: "NorthernAnnual",
         data: data3.map((item) => ({
-          time: DateTime.fromISO(item.time),
-
+          time: DateTime.fromObject({
+            year: item.time,
+          }).toJSDate(),
           value: item.ucl,
         })),
         borderColor: "rgb(192, 192, 75)",
@@ -104,25 +108,26 @@ const HadcrutReconstructionMonthly = () => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",
       },
       title: {
         display: true,
-        text: "Time Line Graph Demonstration",
+        text: "",
       },
     },
     scales: {
       xAxis: {
         type: "time",
         time: {
-          unit: "month",
+          unit: "year",
         },
       },
     },
   };
-  return <Line options={options} data={chartData} />;
+  return <Line options={options} data={chartData} width={200} />;
 };
 
-export default HadcrutReconstructionMonthly;
+export default HadcrutReconstructionAnnual;

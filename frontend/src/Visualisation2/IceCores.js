@@ -4,6 +4,7 @@ import { Chart } from "chart.js/auto";
 import "chartjs-adapter-luxon";
 import { Line } from "react-chartjs-2";
 import { DateTime } from "luxon";
+import { Container, Col, Row } from "react-bootstrap";
 
 const IceCores = () => {
   const [data1, setData1] = useState([]);
@@ -127,6 +128,8 @@ const IceCores = () => {
   };
 
   const options = {
+    maintainAspectRatio: false,
+
     responsive: true,
     plugins: {
       legend: {
@@ -146,7 +149,41 @@ const IceCores = () => {
       },
     },
   };
-  return <Line options={options} data={chartData} />;
+  return (
+    <>
+      <Container>
+        <Row>
+          <Line options={options} data={chartData} width={200} />
+        </Row>
+        <Row>
+          {" "}
+          <p>
+            Atmospheric CO2 concentrations from Mauna Loa measurements starting
+            1958
+          </p>
+          <p>
+            <a href="https://gml.noaa.gov/ccgg/about/co2_measurements.html">
+              Description
+            </a>{" "}
+            and <a href="https://gml.noaa.gov/ccgg/trends/data.html">Data</a>
+          </p>
+          <p>
+            Antarctic Ice Core records of atmospheric CO2 ratios combined with
+            Mauna Loa measurements
+          </p>
+          <p>
+            <a href="https://cdiac.ess-dive.lbl.gov/trends/co2/lawdome.html">
+              Description
+            </a>{" "}
+            and{" "}
+            <a href="https://cdiac.ess-dive.lbl.gov/ftp/trends/co2/lawdome.combined.dat">
+              Data
+            </a>
+          </p>
+        </Row>
+      </Container>
+    </>
+  );
 };
 
 export default IceCores;

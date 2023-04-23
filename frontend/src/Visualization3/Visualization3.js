@@ -88,6 +88,8 @@ function Visualization3() {
   };
 
   const options = {
+    maintainAspectRatio: false,
+
     responsive: true,
     maintainAspectRatio: true,
     plugins: {
@@ -139,7 +141,7 @@ function Visualization3() {
       <Row className="d-flex justify-content-center">
         <Col>
           {chartData.labels && chartData.datasets ? (
-            <Line data={chartData} options={options} />
+            <Line data={chartData} options={options} width={200} />
           ) : (
             <p>Loading chart data...</p>
           )}
