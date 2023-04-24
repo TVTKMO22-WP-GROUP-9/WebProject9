@@ -16,10 +16,13 @@ const Navigation = () => {
             <Nav.Link href="/Visualization1">Visualization1</Nav.Link>
             <Nav.Link href="/Visualization2">Visualization2</Nav.Link>
             <Nav.Link href="/Visualization3">Visualization3</Nav.Link>
+            <Nav.Link href="/Visualization4">Visualization4</Nav.Link>
+            <Nav.Link href="/Visualization5">Visualization5</Nav.Link>
           </Nav>
           <Nav>
             {localStorage.getItem("token") ? (
               <>
+                <Nav.Link href="/home">Home</Nav.Link>
                 <Nav.Link href="/makeVisualization">Create</Nav.Link>
                 <Nav.Link href="/myVisualizations">My Pages</Nav.Link>
                 <Button variant="outline-light" href="/" onClick={handleLogout}>

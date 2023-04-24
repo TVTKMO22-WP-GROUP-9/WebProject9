@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import { Container, Col, Row } from "react-bootstrap";
 
-
 import {
   Chart,
   CategoryScale,
@@ -24,32 +23,32 @@ Chart.register(
 );
 
 function Visualization3() {
-  
   const [data, setChartData] = useState([]);
-
 
   useEffect(() => {
     const fetchChartData = async () => {
+<<<<<<< HEAD:forntend/src/Visualization3/Visualization3.js
       const res = await fetch("https://webproj9.oulu.azatotweb.com/carbondioxide");
+=======
+      const res = await fetch(
+        "https://webproj9.oulu.azatotweb.com/carbondioxide"
+      );
+>>>>>>> main:frontend/src/Visualization3/Visualization3.js
       const data = await res.json();
 
       console.log(data); // log the fetched data to the console
 
-
-      
       setChartData(data);
     };
 
     fetchChartData();
   }, []);
-  
 
   const chartData = {
     labels: data.map((item) => item.time),
-    
-    
+
     datasets: [
-     {
+      {
         label: "Co2 (ppm)",
         data: data.map((item) => item.carbon_dioxide),
         fill: false,
@@ -72,7 +71,7 @@ function Visualization3() {
       {
         label: "Events",
         data: data.map((item) => ({
-          time: item.time, 
+          time: item.time,
           value: item.point,
           ttip: item.event,
         })),
@@ -89,12 +88,12 @@ function Visualization3() {
           yAxisKey: "value",
         },
       },
-
     ],
   };
 
-  
   const options = {
+    maintainAspectRatio: false,
+
     responsive: true,
     maintainAspectRatio: true,
     plugins: {
@@ -103,25 +102,28 @@ function Visualization3() {
       },
       title: {
         display: true,
-        text: "Evolution of Global Surface Temperature & Carbon Dioxide levels"
+        text: "Evolution of Global Surface Temperature & Carbon Dioxide levels",
       },
-     tooltip: {
+      tooltip: {
         callbacks: {
           label: (context) => {
-            console.log(context)
+            console.log(context);
             return context.raw.ttip;
-          }
-        }
-      }
-     
+          },
+        },
+      },
     },
 
     scales: {
       y: {
         type: "linear",
         position: "right",
+<<<<<<< HEAD:forntend/src/Visualization3/Visualization3.js
         title:
          {
+=======
+        title: {
+>>>>>>> main:frontend/src/Visualization3/Visualization3.js
           text: "Temperature (°C)",
           display: true,
         },
@@ -129,20 +131,27 @@ function Visualization3() {
       y1: {
         type: "linear",
         position: "left",
+<<<<<<< HEAD:forntend/src/Visualization3/Visualization3.js
         title: 
         {
+=======
+        title: {
+>>>>>>> main:frontend/src/Visualization3/Visualization3.js
           text: "Co2 (ppm)",
           display: true,
         },
       },
       x: {
+<<<<<<< HEAD:forntend/src/Visualization3/Visualization3.js
         title: 
         {
+=======
+        title: {
+>>>>>>> main:frontend/src/Visualization3/Visualization3.js
           text: "Years ago",
           display: true,
         },
       },
-  
     },
   };
 
@@ -151,10 +160,7 @@ function Visualization3() {
       <Row className="d-flex justify-content-center">
         <Col>
           {chartData.labels && chartData.datasets ? (
-            <Line
-              data={chartData} options={options}
-
-            />
+            <Line data={chartData} options={options} width={200} />
           ) : (
             <p>Loading chart data...</p>
           )}

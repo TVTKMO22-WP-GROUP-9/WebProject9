@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MyVisualizations = () => {
   const [pages, setPages] = useState([]);
@@ -26,6 +28,21 @@ const MyVisualizations = () => {
     fetchData();
   }, []);
 
+  const deleteVisualization = (id, lable) => {
+    axios
+      .delete(`https://webproj9.oulu.azatotweb.com/visualization/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((response) => {
+        setPages(pages.filter((page) => page.id_visualization !== id));
+        toast.success("Visualization " + lable + " deleted successfully!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <>
       <Container>
@@ -50,6 +67,13 @@ const MyVisualizations = () => {
                   <Card.Text>{page.text}</Card.Text>
                   <Button as={Link} to={"/" + page.url}>
                     View
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() =>
+                      deleteVisualization(page.id_visualization, page.lable)
+                    }>
+                    Delete
                   </Button>
                 </Card.Body>
               </Card>
