@@ -14,14 +14,14 @@ describe('Carbondioxide test', function () {
       it('should return data', function (done) {
         //send http request
         chai.request("https://webproj9.oulu.azatotweb.com")
-            .get("/carbondioxide")
+            .get("/carbondioxide/1990")
             .end(function(err, res) {
                 //check response
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
 
                 //check response data structure
-               // expect(res.body).to.be.jsonSchema(carbondioxideSchema)
+                expect(res.body).to.be.jsonSchema(carbondioxideSchema)
                 done();
                 
 
