@@ -27,13 +27,9 @@ function Visualization3() {
 
   useEffect(() => {
     const fetchChartData = async () => {
-<<<<<<< HEAD:forntend/src/Visualization3/Visualization3.js
-      const res = await fetch("https://webproj9.oulu.azatotweb.com/carbondioxide");
-=======
       const res = await fetch(
         "https://webproj9.oulu.azatotweb.com/carbondioxide"
       );
->>>>>>> main:frontend/src/Visualization3/Visualization3.js
       const data = await res.json();
 
       console.log(data); // log the fetched data to the console
@@ -118,12 +114,7 @@ function Visualization3() {
       y: {
         type: "linear",
         position: "right",
-<<<<<<< HEAD:forntend/src/Visualization3/Visualization3.js
-        title:
-         {
-=======
         title: {
->>>>>>> main:frontend/src/Visualization3/Visualization3.js
           text: "Temperature (°C)",
           display: true,
         },
@@ -131,23 +122,13 @@ function Visualization3() {
       y1: {
         type: "linear",
         position: "left",
-<<<<<<< HEAD:forntend/src/Visualization3/Visualization3.js
-        title: 
-        {
-=======
         title: {
->>>>>>> main:frontend/src/Visualization3/Visualization3.js
           text: "Co2 (ppm)",
           display: true,
         },
       },
       x: {
-<<<<<<< HEAD:forntend/src/Visualization3/Visualization3.js
-        title: 
-        {
-=======
         title: {
->>>>>>> main:frontend/src/Visualization3/Visualization3.js
           text: "Years ago",
           display: true,
         },
@@ -165,6 +146,9 @@ function Visualization3() {
             <p>Loading chart data...</p>
           )}
         </Col>
+        <p>Sources<br></br> "Evolution of global temperature over the past two million years"  http://carolynsnyder.com/publications.php - http://carolynsnyder.com/papers/Snyder_Data_Figures.zip</p>
+        <p>"Human Evolution and Activities" https://www.southampton.ac.uk/~cpd/history.html</p>
+        
       </Row>
     </Container>
   );
