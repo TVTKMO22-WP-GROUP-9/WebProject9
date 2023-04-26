@@ -5,22 +5,22 @@ chai.use(chaiHttp);
 const chaiJsonSchemaAjv = require("chai-json-schema-ajv");
 chai.use(chaiJsonSchemaAjv);
 
-const carbondioxideSchema = require("../schemas/carbondioxideTest.schema.json");
+const HadcrutAnnualTestSchema = require("../schemas/HadcrutAnnualTest.schema.json");
 
-describe('Carbondioxide test', function () {
+describe('HadcrutAnnualTest test', function () {
 
-    describe('GET /carbondioxide/1990', function () {
+    describe('GET /hadcrud/GlobalAnnual', function () {
       it('should return data', function (done) {
         //send http request
         chai.request("https://webproj9.oulu.azatotweb.com")
-            .get("/carbondioxide/1990")
+            .get("/hadcrud/GlobalAnnual")
             .end(function(err, res) {
                 //check response
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
 
                 //check response data structure
-                expect(res.body).to.be.jsonSchema(carbondioxideSchema)
+                expect(res.body).to.be.jsonSchema(HadcrutAnnualTestSchema)
                 done();
                 
 
@@ -29,18 +29,18 @@ describe('Carbondioxide test', function () {
 
       })
     })
-    describe('GET /carbondioxide/20', function () {
+    describe('GET /hadcrud/GlobalAnnual/1886', function () {
       it('should return data', function (done) {
         //send http request
         chai.request("https://webproj9.oulu.azatotweb.com")
-            .get("/carbondioxide/")
+            .get("/hadcrud/GlobalAnnual/1886")
             .end(function(err, res) {
                 //check response
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
 
                 //check response data structure
-                expect(res.body).to.be.jsonSchema(carbondioxideSchema)
+                expect(res.body).to.be.jsonSchema(HadcrutAnnualTestSchema)
                 done();
                 
 

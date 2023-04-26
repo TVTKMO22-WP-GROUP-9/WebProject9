@@ -7,14 +7,10 @@
         "default": {},
         "title": "A Schema",
         "required": [
-            "id_gast_carbondioxide",
             "time",
-            "average_temp",
-            "carbon_dioxide",
-            "event",
-            "point"
+            "anomaly",
+            "lcl",
+            "ucl"
         ]
-
-    }
-
+}
 }
