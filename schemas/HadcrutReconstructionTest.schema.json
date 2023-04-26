@@ -1,0 +1,21 @@
+{
+    "type": "array",
+    "default": [],
+    "title": "Root Schema",
+    "items": {
+        "type": "object",
+        "default": {},
+        "title": "A Schema",
+        "required": [
+            "time",
+            "ucl",
+            "LF",
+            "LF-",
+            "LF+",
+            "A-",
+            "A+",
+            "AB-",
+            "AB+"
+        ]
+}
+}
