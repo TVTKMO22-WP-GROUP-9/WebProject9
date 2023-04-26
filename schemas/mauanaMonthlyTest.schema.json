@@ -1,0 +1,20 @@
+{
+    "type": "array",
+    "default": [],
+    "title": "Root Schema",
+    "items": {
+        "type": "object",
+        "default": {},
+        "title": "A Schema",
+        "required": [
+            "year",
+            "month",
+            "decimal date",
+            "average",
+            "deseasonalized",
+            "ndays",
+            "sdev",
+            "unc"
+        ]
+    }
+}

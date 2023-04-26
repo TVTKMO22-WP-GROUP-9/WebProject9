@@ -8,7 +8,7 @@ chai.use(chaiJsonSchemaAjv);
 const HadcrutAnnualTestSchema = require("../schemas/HadcrutAnnualTest.schema.json");
 const HadcrutReconstructionTestSchema = require("../schemas/HadcrutReconstructionTest.schema.json");
 
-describe('Hadcrut Tests', function () {
+describe('Hadcrud Tests', function () {
     //Global tests
     describe('GET /hadcrud/GlobalAnnual', function () {
       it('should return data', function (done) {
