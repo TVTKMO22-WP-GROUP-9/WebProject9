@@ -150,6 +150,22 @@ function Visualization3() {
         <p>"Human Evolution and Activities" https://www.southampton.ac.uk/~cpd/history.html</p>
         
       </Row>
+      <Row>
+        {" "}
+        <p>
+          Sources<br></br> "Evolution of global temperature over the past two
+          million years"{" "}
+          <a
+            href="http://carolynsnyder.com/publications.php -
+          http://carolynsnyder.com/papers/Snyder_Data_Figures.zip">
+            data
+          </a>
+        </p>
+        <p>
+          "Human Evolution and Activities"{" "}
+          <a href="https://www.southampton.ac.uk/~cpd/history.html">data</a>
+        </p>
+      </Row>
     </Container>
   );
 }
