@@ -28,8 +28,8 @@ import RegistrationForm from "./Pages/Registration";
 import VisualizationForm from "./Pages/MakeVisualization";
 import MyVisualizations from "./Pages/MyVisualizations";
 import Visualization3 from "./Visualization3/Visualization3";
-import Visualization4 from "./Vis4/Visualization4";
 import Visualization5 from "./Visualization5/Visualization5";
+import Visualization4 from "./Visualisation4/Visualization4";
 
 function App() {
   const [pages, setPages] = useState([]);

@@ -3,7 +3,7 @@ import { Row, Col, ListGroup } from "react-bootstrap";
 import Visualization1 from "../Visualisation1/Visualization1";
 import IceCores from "../Visualisation2/IceCores";
 import Visualization3 from "../Visualization3/Visualization3";
-import Visualization4 from "../Vis4/Visualization4";
+import Visualization4 from "../Visualisation4/Visualization4";
 import Visualization5 from "../Visualization5/Visualization5";
 import Card from "react-bootstrap/Card";
 
