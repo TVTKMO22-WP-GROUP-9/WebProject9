@@ -146,9 +146,6 @@ function Visualization3() {
             <p>Loading chart data...</p>
           )}
         </Col>
-        <p>Sources<br></br> "Evolution of global temperature over the past two million years"  http://carolynsnyder.com/publications.php - http://carolynsnyder.com/papers/Snyder_Data_Figures.zip</p>
-        <p>"Human Evolution and Activities" https://www.southampton.ac.uk/~cpd/history.html</p>
-        
       </Row>
       <Row>
         {" "}
