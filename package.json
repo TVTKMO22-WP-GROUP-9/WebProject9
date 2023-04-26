@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
+    "chai-json-schema-ajv": "^5.2.4",
+    "mocha": "^10.2.0"
+  },
+  "dependencies": {
+    "ajv-errors": "^1.0.1"
+  }
+}
