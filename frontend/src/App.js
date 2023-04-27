@@ -22,15 +22,6 @@ import Home from "./Pages/Home";
 import Page from "./Pages/NumberPage";
 import Visualization1 from "./Visualisation1/Visualization1";
 import IceCores from "./Visualisation2/IceCores";
-<<<<<<< HEAD:forntend/src/App.js
-import Login from "./Pages/Login";
-<<<<<<< HEAD
-import Register from "./Pages/Register";
-=======
-import LoginPage from "./Pages/Login";
-import UserPage from "./Pages/UserPage";
->>>>>>> main
-=======
 import LoginPage from "./Pages/Login";
 import UserPage from "./Pages/UserPage";
 import RegistrationForm from "./Pages/Registration";
@@ -39,7 +30,6 @@ import MyVisualizations from "./Pages/MyVisualizations";
 import Visualization3 from "./Visualization3/Visualization3";
 import Visualization5 from "./Visualization5/Visualization5";
 import Visualization4 from "./Visualisation4/Visualization4";
->>>>>>> main:frontend/src/App.js
 
 function App() {
   const [pages, setPages] = useState([]);
@@ -90,15 +80,6 @@ function App() {
           <Route path="/Visualization4" element={<Visualization4 />} />
           <Route path="/Visualization5" element={<Visualization5 />} />
 
-<<<<<<< HEAD
-            <Route path="/HadcrutMonthly" element={<IceCores />} />
-            <Route path="/Reconstruction" element={<Reconstruction />} />
-            <Route path="/Icebergs" element={<Icebergs />} />
-            <Route path="/visInput" element={<VisualizationForm />}></Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="*" element={<Error404 />} />
-=======
           <Route path="/HadcrutMonthly" element={<IceCores />} />
           <Route path="/Reconstruction" element={<Reconstruction />} />
           <Route path="/Icebergs" element={<Icebergs />} />
@@ -106,13 +87,8 @@ function App() {
 
           <Route element={<ProtectedRoute />}>
             <Route path="home" element={<UserPage />} />
-<<<<<<< HEAD:forntend/src/App.js
-            <Route path="dashboard" element={<VisualizationForm />} />
->>>>>>> main
-=======
             <Route path="/makeVisualization" element={<VisualizationForm />} />
             <Route path="/myVisualizations" element={<MyVisualizations />} />
->>>>>>> main:frontend/src/App.js
           </Route>
 
           <Route path="/login" element={<LoginPage />} />
