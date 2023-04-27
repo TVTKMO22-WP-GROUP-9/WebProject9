@@ -34,7 +34,7 @@ router.post("/", function (request, response) {
 });
 
 router.delete("/:id", function (request, response) {
-  user.delete(request.params.login_user, function (err, dbResult) {
+  user.delete(request.params.id, function (err, dbResult) {
     if (err) {
       response.json(err);
     } else {
@@ -44,17 +44,13 @@ router.delete("/:id", function (request, response) {
 });
 
 router.put("/:id", function (request, response) {
-  user.update(
-    request.params.login_user,
-    request.body,
-    function (err, dbResult) {
-      if (err) {
-        response.json(err);
-      } else {
-        response.json(dbResult);
-      }
+  user.update(request.params.id, request.body, function (err, dbResult) {
+    if (err) {
+      response.json(err);
+    } else {
+      response.json(dbResult);
     }
-  );
+  });
 });
 
 module.exports = router;
