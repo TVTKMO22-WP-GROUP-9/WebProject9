@@ -7,7 +7,7 @@ chai.use(chaiJsonSchemaAjv);
 
 const Visualization4TestSchema = require("../schemas/visualization4Test.schema.json");
 
-describe('Visualization test', function () {
+describe('Visualization 4 test', function () {
 
   //Visualization 4
 
