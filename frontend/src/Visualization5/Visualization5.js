@@ -1,6 +1,7 @@
 import { Button } from "react-bootstrap";
 import React, { useState, useEffect, useRef } from "react";
 import { Doughnut, getElementAtEvent } from "react-chartjs-2";
+import { Container, Col, Row } from "react-bootstrap";
 
 function Visualization5() {
   const [chartData, setChartData] = useState(null);
@@ -112,27 +113,42 @@ function Visualization5() {
       .catch((error) => console.error(error));
   }, []);
 
+
   return (
-    <div>
+<Container>
+  <Row className="d-flex justify-content-center mb-4">
+    <Col>
+    <p>CO2 emission percentages by sectors</p>
+    <p>Double click on a sector pie to get further information.</p>
       {!showSubChart && chartData && (
-        <>
-          <Doughnut
-            data={chartData}
-            options={{ responsive: true }}
-            onClick={onClick}
-            ref={chartRef}
-          />
-        </>
+        <Doughnut
+          data={chartData}
+          options={{ responsive: true }}
+          onClick={onClick}
+          ref={chartRef}
+        />
       )}
       {showSubChart && subChartData && (
         <>
           <Button onClick={goBack}>Back</Button>
-
           <Doughnut data={subChartData} options={{ responsive: true }} />
         </>
       )}
-    </div>
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <p>
+          <a
+            href="https://ourworldindata.org/emissions-by-sector#co2-emissions-by-sector">
+            Description
+          </a>
+          <p>"Where does our CO2 come from? This chart shows the distribution of CO2 emissions across sectors."</p>
+      </p>
+    </Col>
+  </Row>
+</Container>
   );
-}
+};
 
 export default Visualization5;
