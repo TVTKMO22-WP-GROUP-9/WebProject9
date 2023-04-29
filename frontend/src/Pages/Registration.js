@@ -63,7 +63,7 @@ const RegistrationForm = () => {
     <Card style={{ maxWidth: "500px", boxShadow: "0px 0px 10px #D3D3D3" }}>
       <Card.Img variant="left" src={RegisterImage} style={{maxHeight: "165px"}}/>
       <Card.Body>
-        <Row className="text-center mt-3 mb-4" style={{ fontSize: "1.5rem"}}>
+        <Row className="text-center mt-3 mb-3" style={{ fontSize: "1.5rem"}}>
           <Col>
             <h2>Registration</h2>
           </Col>
