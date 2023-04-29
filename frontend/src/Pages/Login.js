@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Container, Card, Form, Button, Spinner } from "react-bootstrap";
-import loginImage from "./loginImage.jpg";
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
@@ -44,7 +43,7 @@ const LoginPage = () => {
   return (
     <Container className="d-flex justify-content-center mt-5">
       <Card style={{ maxWidth: "425px", boxShadow: "0px 0px 10px #D3D3D3" }}>
-      <Card.Img variant="top" src={loginImage}/>
+      <Card.Img variant="top" src="loginImage.jpg"/>
       <div className="text-center" style={{ position: "relative" }}>
           <Card.Body>
             <h2 className="text-center mt-3 mb-4" style={{ fontSize: "1.5rem" }}>

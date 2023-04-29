@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Container, Card, Row, Col, Form, Button } from "react-bootstrap";
-import RegisterImage from "./RegisterImage.jpg";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
@@ -61,7 +60,7 @@ const RegistrationForm = () => {
   return (
     <Container className="d-flex justify-content-center align-items-center">
     <Card style={{ maxWidth: "500px", boxShadow: "0px 0px 10px #D3D3D3" }}>
-      <Card.Img variant="left" src={RegisterImage} style={{maxHeight: "165px"}}/>
+      <Card.Img variant="left" src="RegisterImage.jpg" style={{maxHeight: "165px"}}/>
       <Card.Body>
         <Row className="text-center mt-3 mb-3" style={{ fontSize: "1.5rem"}}>
           <Col>
