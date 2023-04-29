@@ -79,7 +79,7 @@ const RegistrationForm = () => {
           <Form onSubmit={handleSubmit}>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formLoginUser">
-                <Form.Label>Username</Form.Label>
+                <Form.Label>Username:</Form.Label>
                 <Form.Control
                   type="text"
                   name="login_user"
@@ -93,7 +93,7 @@ const RegistrationForm = () => {
             </Row>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formFirstName">
-                <Form.Label>First Name</Form.Label>
+                <Form.Label>First Name:</Form.Label>
                 <Form.Control
                   type="text"
                   name="fname_user"
@@ -105,7 +105,7 @@ const RegistrationForm = () => {
                 />
               </Form.Group>
               <Form.Group as={Col} controlId="formLastName">
-                <Form.Label>Last Name</Form.Label>
+                <Form.Label>Last Name:</Form.Label>
                 <Form.Control
                   type="text"
                   name="lname_user"
@@ -119,7 +119,7 @@ const RegistrationForm = () => {
             </Row>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formEmail">
-                <Form.Label>Email address</Form.Label>
+                <Form.Label>Email address:</Form.Label>
                 <Form.Control
                   type="email"
                   name="email_user"
@@ -133,7 +133,7 @@ const RegistrationForm = () => {
             </Row>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Password:</Form.Label>
                 <Form.Control
                   type="password"
                   name="password_user"
@@ -147,7 +147,7 @@ const RegistrationForm = () => {
             </Row>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formConfirmPassword">
-                <Form.Label>Confirm Password</Form.Label>
+                <Form.Label>Confirm Password:</Form.Label>
                 <Form.Control
                   type="password"
                   name="confirm_password_user"
