@@ -4,7 +4,6 @@ import { Container, Card, Form, Button, Spinner } from "react-bootstrap";
 import loginImage from "./loginImage.jpg";
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
