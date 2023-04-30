@@ -81,6 +81,7 @@ const RegistrationForm = () => {
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
                   type="text"
+                  data-testid="login_user"
                   name="login_user"
                   placeholder="Username"
                   value={formValues.login_user}
@@ -95,6 +96,7 @@ const RegistrationForm = () => {
                 <Form.Label>First Name:</Form.Label>
                 <Form.Control
                   type="text"
+                  data-testid="fname_user"
                   name="fname_user"
                   placeholder="First name"
                   value={formValues.fname_user}
@@ -107,6 +109,7 @@ const RegistrationForm = () => {
                 <Form.Label>Last Name:</Form.Label>
                 <Form.Control
                   type="text"
+                  data-testid="lname_user"
                   name="lname_user"
                   placeholder="Last name"
                   value={formValues.lname_user}
@@ -121,6 +124,7 @@ const RegistrationForm = () => {
                 <Form.Label>Email address:</Form.Label>
                 <Form.Control
                   type="email"
+                  data-testid="email_user"
                   name="email_user"
                   placeholder="Enter email"
                   value={formValues.email_user}
@@ -135,6 +139,7 @@ const RegistrationForm = () => {
                 <Form.Label>Password:</Form.Label>
                 <Form.Control
                   type="password"
+                  data-testid="password_user"
                   name="password_user"
                   placeholder="Password"
                   value={formValues.password_user}
@@ -149,6 +154,7 @@ const RegistrationForm = () => {
                 <Form.Label>Confirm Password:</Form.Label>
                 <Form.Control
                   type="password"
+                  data-testid="confirm_password_user"
                   name="confirm_password_user"
                   placeholder="Confirm password"
                   value={formValues.confirm_password_user}
@@ -163,7 +169,7 @@ const RegistrationForm = () => {
                 {errorMessage}
               </div>
             )}
-                <Button variant="primary" type="submit" className="w-50 my-3" disabled={isSubmitting} block>
+                <Button data-testid="registerbutton" variant="primary" type="submit" className="w-50 my-3" disabled={isSubmitting} block>
               Register
               </Button>
               <p className="mt-1">
