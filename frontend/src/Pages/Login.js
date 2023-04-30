@@ -54,6 +54,7 @@ const LoginPage = () => {
             <Form.Label className="text-left">Username:</Form.Label>
             <Form.Control
               type="text"
+              data-testid="login_user"
               placeholder="Username"
               value={username}
               onChange={(event) => setUsername(event.target.value)}
@@ -65,6 +66,7 @@ const LoginPage = () => {
             <Form.Label className="text-left">Password:</Form.Label>
             <Form.Control
               type="password"
+              data-testid="password_user"
               placeholder="Password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
@@ -79,12 +81,12 @@ const LoginPage = () => {
                   Logging in...
                 </Button>
               ) : (
-                <Button variant="primary" type="submit" className="w-50 my-3">
+                <Button data-testid="loginbutton" variant="primary" type="submit" className="w-50 my-3">
                   Login
                 </Button>
               )}
               {responseText && (
-                <p className="error mt-3" style={{ fontSize: "0.9rem" }}>
+                <p data-testid="response_text" className="error mt-3" style={{ fontSize: "0.9rem" }}>
                   {responseText}
                 </p>
               )}
