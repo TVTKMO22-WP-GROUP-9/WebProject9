@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import { Line } from "react-chartjs-2";
+import { Container, Col, Row } from "react-bootstrap";
 
 function Visualization4() {
   const [data, setData] = useState([]);
@@ -59,7 +60,10 @@ function Visualization4() {
   };
 
   return (
-    <div>
+    <>
+    <Container>
+      <Row>
+      <div width={200}>
       <label htmlFor="country-select">Select countries:</label>
       <Select
         id="country-select"
@@ -72,6 +76,20 @@ function Visualization4() {
       />
       {selectedCountries.length > 0 && <Line data={chartData} />}
     </div>
+      </Row>
+      <Row>
+        
+        <p>
+          The visualization shows the CO2 emissions of the selected countries between 1959 and 2020.
+        </p>
+        <p>
+          <a href="https://www.icos-cp.eu/science-and-impact/global-carbon-budget/2021">Description</a>
+          {" "}
+          and <a href="https://data.icos-cp.eu/licence_accept?ids=%5B%22lApekzcmd4DRC34oGXQqOxbJ%22%5D">Data</a>
+        </p>
+      </Row>
+    </Container>
+    </>
   );
 }
 
