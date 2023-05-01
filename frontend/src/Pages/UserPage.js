@@ -44,7 +44,7 @@ const UserPage = () => {
       <h1>Welcome to the Main Page</h1>
       <p>User ID: {userId}</p>
       <p>User Name: {userName}</p>
-      <Button onClick={() => setShowDeleteModal(true)}>Delete User</Button>
+      <Button data-testid="deletebutton" onClick={() => setShowDeleteModal(true)}>Delete User</Button>
       <Offcanvas
         show={showDeleteModal}
         onHide={() => setShowDeleteModal(false)}>
@@ -53,7 +53,7 @@ const UserPage = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <p>Are you sure you want to delete your account?</p>
-          <Button variant="danger" onClick={() => deleteUser(userId)}>
+          <Button data-testid="deletebutton2" variant="danger" onClick={() => deleteUser(userId)}>
             Delete
           </Button>
           <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
