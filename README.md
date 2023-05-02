@@ -78,7 +78,7 @@ Frontendin testaus suoritetaan ```npm test``` komennolla frontend kansiossa.
 Testeissä käydään läpi sisäänkirjautuminen ja rekisteröinti. Testauksessa käytetään Jest-kirjastoa ja apukirjastona React Testing Libraryä. Jestin ilmaisuvoimaa laajennetaan myös jest-dom:lla.
 
 ## Sovelluksen käyttöönotto 
-https://climatedata.oulu.azatotweb.com/
+https://ilmi.oulu.azatotweb.com/
 
 ## Linkit
 * [Backend](https://webproj9.oulu.azatotweb.com)
