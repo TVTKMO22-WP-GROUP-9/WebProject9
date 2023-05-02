@@ -82,4 +82,4 @@ https://ilmi.oulu.azatotweb.com/
 
 ## Linkit
 * [Backend](https://webproj9.oulu.azatotweb.com)
-* [Frontend](https://visualiztions.oulu.azatotweb.com)
+* [Frontend](https://ilmi.oulu.azatotweb.com)
