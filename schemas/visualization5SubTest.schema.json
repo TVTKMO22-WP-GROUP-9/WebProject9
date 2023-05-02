@@ -1,0 +1,16 @@
+{
+    "type": "array",
+    "default": [],
+    "title": "Root Schema",
+    "items": {
+        "type": "object",
+        "default": {},
+        "title": "A Schema",
+        "required": [
+            "Sub-sector",
+            "Share of global greenhouse gas emissions (%)"
+        ]
+
+    
+}
+}
