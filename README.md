@@ -56,6 +56,24 @@ Esimerkki luodusta visualisoinnista (kuva 5):
 ![image](https://user-images.githubusercontent.com/112496055/234589253-320a2963-3e6c-471f-ba6d-a198f5d2fb0d.png)
 > **KUVA 5**. Esimerkki visualisointi.
 
+## Testaus
+### Backend user testaus
+backend kansiossa käynistä  ``` npm test ``` 
+
+### Visuaalisaatio näkymien 1-5 http requestien testaus
+Testit tehdään Mocha ja Chai kirjastoilla
+
+WebProject9 -kansiossa 
+
+ ```npm install ```
+ ```npx mocha ```
+
+Suorittaa http GET testit Visuaalisaatioihin 1-5 sekä yhden POST testin.
+
+### Frontend testaus
+Frontendin testaus suoritetaan ```npm test``` komennolla frontend kansiossa. 
+Testeissä käydään läpi sisäänkirjautuminen ja rekisteröinti. Testauksessa käytetään Jest-kirjastoa ja apukirjastona React Testing Libraryä. Jestin ilmaisuvoimaa laajennetaan myös jest-dom:lla.
+
 ## Sovelluksen käyttöönotto 
 https://climatedata.oulu.azatotweb.com/
 
