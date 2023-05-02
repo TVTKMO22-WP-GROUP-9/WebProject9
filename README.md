@@ -27,34 +27,37 @@ Sovelluksen käyttöliittymäsuunnitelma sisältää kirjautumisen, rekisteröit
 ## Sovelluksen käyttöliittymän toteutus
 
 ### Etusivu
-Sivuston etusivulta (kuva 1) löytyy sisäänkirjautumiselle ja rekisteröitymiselle painikkeet. Tämän lisäksi sivuston yläpalkista voi käydä katsomassa eri visualisointeja. Rekisteröitymisessä käyttäjä syöttää käyttäjänimen, etu- ja sukunimen, sähköpostin ja salasanan. Kun tiedot on syötetty, rekisteröintipainiketta painamalla tiedot lähetetään tietokantaan. Salasana kryptataan bcryptillä. Kirjautuminen tapahtuu käyttäjänimellä ja salasanalla.
+Sivuston etusivulta (kuva 1) löytyy sisäänkirjautumiselle ja rekisteröitymiselle painikkeet. Tämän lisäksi sivuston yläpalkista voi käydä katsomassa eri visualisointeja. Rekisteröitymisessä kuva 2) käyttäjä syöttää käyttäjänimen, etu- ja sukunimen, sähköpostin ja salasanan. Kun tiedot on syötetty, rekisteröintipainiketta painamalla tiedot lähetetään tietokantaan. Salasana kryptataan bcryptillä. Kirjautuminen tapahtuu käyttäjänimellä ja salasanalla.
 
-![image](https://user-images.githubusercontent.com/112496055/234589055-b768989e-65ab-4809-aa73-f55bf63544da.png)
+![image](https://user-images.githubusercontent.com/112496055/235734794-aa9de55c-a959-4884-9821-8fa0302c3be4.png)
 > **KUVA 1**. Sivuston etusivu.
 
-### Profiili
-Kun käyttäjä kirjautuu sisään, tulee näkyville käyttäjän profiili (kuva 2), yläpalkkiin painike oman visualisoinnin luomiselle sekä omien visualisointien tarkastelulle. Tällä sivulla käyttäjä voi halutessaan poistaa käyttäjänsä.
+![image](https://user-images.githubusercontent.com/112496055/235734893-a8c79dbb-4c1e-4141-9330-c3aebfc3d835.png)
+> **KUVA 2**. Käyttäjän rekisteröinti.
 
-![image](https://user-images.githubusercontent.com/112496055/234589158-77abe3ca-4cea-44ad-aa61-2e48101922a6.png)
-> **KUVA 2**. Sivusto sisäänkirjautumisen jälkeen.
+### Profiili
+Kun käyttäjä kirjautuu sisään, tulee näkyville käyttäjän profiili (kuva 3), yläpalkkiin painike oman visualisoinnin luomiselle sekä omien visualisointien tarkastelulle. Tällä sivulla käyttäjä voi halutessaan poistaa käyttäjänsä.
+
+![image](https://user-images.githubusercontent.com/112496055/235735105-9d6879b3-896e-41b7-b973-057b026ef4e0.png)
+> **KUVA 3**. Sivusto sisäänkirjautumisen jälkeen.
 
 ### Visualisoinnin luonti
-Visualisointia luodessa (kuva 3) käyttäjä päättää visualisointinsa nimen, mitä eri kaavioita visualisoinnissa näytetään, niiden asettelun vierekkäis- tai pystysuunnassa, sekä visualisoinnin ja kaavioiden kuvaukset. Luodulle visualisoinnille generoidaan linkki, jonka kautta rekisteröitymättömätkin käyttäjät pääsevät tarkastelemaan sitä.
+Visualisointia luodessa (kuva 4) käyttäjä päättää visualisointinsa nimen, mitä eri kaavioita visualisoinnissa näytetään, niiden asettelun vierekkäis- tai pystysuunnassa, sekä visualisoinnin ja kaavioiden kuvaukset. Luodulle visualisoinnille generoidaan linkki, jonka kautta rekisteröitymättömätkin käyttäjät pääsevät tarkastelemaan sitä.
 
-![image](https://user-images.githubusercontent.com/112496055/234589189-7ceada47-e8d9-4c66-99af-14b2c5f571f8.png)
-> **KUVA 3**. Visualisoinnin luonti.
+![image](https://user-images.githubusercontent.com/112496055/235735173-f3f57136-cf89-4137-be68-f8e6ffcf7683.png)
+> **KUVA 4**. Visualisoinnin luonti.
 
 ### Omat visualisoinnit
-My pages -sivulta (kuva 4) löytyy käyttäjän luomien visualisointien linkit ja mahdollisuus poistaa ne.
+My pages -sivulta (kuva 5) löytyy käyttäjän luomien visualisointien linkit ja mahdollisuus poistaa ne.
 
-![image](https://user-images.githubusercontent.com/112496055/234589223-e737ba03-2922-46ab-baec-65384e6d6909.png)
-> **KUVA 4**. My pages -sivu.
+![image](https://user-images.githubusercontent.com/112496055/235735224-e108f288-e539-461d-b730-32164dde8864.png)
+> **KUVA 5**. My pages -sivu.
 
 ### Esimerkki visualisoinnista
-Esimerkki luodusta visualisoinnista (kuva 5):
+Esimerkki luodusta visualisoinnista (kuva 6):
 
-![image](https://user-images.githubusercontent.com/112496055/234589253-320a2963-3e6c-471f-ba6d-a198f5d2fb0d.png)
-> **KUVA 5**. Esimerkki visualisointi.
+![image](https://user-images.githubusercontent.com/112496055/235735255-e8e82689-f3ed-477e-997d-593d4cd91b7d.png)
+> **KUVA 6**. Esimerkki visualisointi.
 
 ## Testaus
 ### Backend user testaus
