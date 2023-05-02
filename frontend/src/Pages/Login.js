@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Container, Card, Form, Button, Spinner } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
@@ -42,40 +42,47 @@ const LoginPage = () => {
 
   return (
     <Container className="d-flex justify-content-center mt-5">
-      <Card style={{ maxWidth: "425px", boxShadow: "0px 0px 10px #D3D3D3" }}>
-      <Card.Img variant="top" src="loginImage.jpg"/>
-      <div className="text-center" style={{ position: "relative" }}>
+      <Card style={{ maxWidth: "425px", boxShadow: "0px 0px 10px #0B2447" }}>
+        <Card.Img variant="top" src="loginImage.jpg" />
+        <div className="text-center" style={{ position: "relative" }}>
           <Card.Body>
-            <h2 className="text-center mt-3 mb-4" style={{ fontSize: "1.5rem" }}>
+            <h2
+              className="text-center mt-3 mb-4"
+              style={{ fontSize: "1.5rem" }}>
               Login to continue
             </h2>
             <Form className="form" onSubmit={handleLogin}>
-            <Form.Group controlId="username" >
-            <Form.Label className="text-left">Username:</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
-              required
-              className="ml-0 mb-3" style={{ width: "300px", margin: "0 auto", display: "block" }}
-            />
-            </Form.Group>
-            <Form.Group controlId="password">
-            <Form.Label className="text-left">Password:</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              required
-              className="ml-0 mb-3"
-              style={{ width: "300px", margin: "0 auto", display: "block" }}
-            />
-            </Form.Group>
+              <Form.Group controlId="username">
+                <Form.Label className="text-left">Username:</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Username"
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
+                  required
+                  className="ml-0 mb-3"
+                  style={{ width: "300px", margin: "0 auto", display: "block" }}
+                />
+              </Form.Group>
+              <Form.Group controlId="password">
+                <Form.Label className="text-left">Password:</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  required
+                  className="ml-0 mb-3"
+                  style={{ width: "300px", margin: "0 auto", display: "block" }}
+                />
+              </Form.Group>
               {isLoading ? (
-                <Button variant="primary" type="submit" style={{ marginTop: "1rem" }} disabled>
-                <Spinner animation="border" size="sm" />
+                <Button
+                  variant="primary"
+                  type="submit"
+                  style={{ marginTop: "1rem" }}
+                  disabled>
+                  <Spinner animation="border" size="sm" />
                   Logging in...
                 </Button>
               ) : (
@@ -90,10 +97,7 @@ const LoginPage = () => {
               )}
             </Form>
             <p className="mt-1 mb-5 text-center">
-              Not registered?{" "}
-              <Link to="/registration">
-                Create an account
-              </Link>
+              Not registered? <Link to="/registration">Create an account</Link>
             </p>
           </Card.Body>
         </div>

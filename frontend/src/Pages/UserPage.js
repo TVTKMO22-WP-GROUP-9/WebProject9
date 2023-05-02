@@ -41,9 +41,12 @@ const UserPage = () => {
 
   return (
     <div>
-      <h1>Welcome to the Main Page</h1>
+      <h1>Welcome to the User Page</h1>
       <p>User ID: {userId}</p>
       <p>User Name: {userName}</p>
+      <br></br>
+      <p>Are you sure you want to delete your account?</p>
+
       <Button onClick={() => setShowDeleteModal(true)}>Delete User</Button>
       <Offcanvas
         show={showDeleteModal}
