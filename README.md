@@ -61,20 +61,20 @@ Esimerkki luodusta visualisoinnista (kuva 6):
 
 ## Testaus
 ### Backend user testaus
-backend kansiossa käynistä  ``` npm test ``` 
+Backend kansiossa käynnistä  ``` npm test ``` 
 
-### Visuaalisaatio näkymien 1-5 http requestien testaus
-Testit tehdään Mocha ja Chai kirjastoilla
+### Visualisaationäkymien 1-5 http requestien testaus
+Testit tehdään Mocha ja Chai -kirjastoilla
 
-WebProject9 -kansiossa 
+WebProject9-kansiossa 
 
  ```npm install ```
  ```npx mocha ```
 
-Suorittaa http GET testit Visuaalisaatioihin 1-5 sekä yhden POST testin.
+Suorittaa http GET testit visualisointeihin 1-5 sekä yhden POST testin.
 
 ### Frontend testaus
-Frontendin testaus suoritetaan ```npm test``` komennolla frontend kansiossa. 
+Frontendin testaus suoritetaan ```npm test``` -komennolla frontend kansiossa. 
 Testeissä käydään läpi sisäänkirjautuminen ja rekisteröinti. Testauksessa käytetään Jest-kirjastoa ja apukirjastona React Testing Libraryä. Jestin ilmaisuvoimaa laajennetaan myös jest-dom:lla.
 
 ## Sovelluksen käyttöönotto 
