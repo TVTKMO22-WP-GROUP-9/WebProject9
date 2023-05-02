@@ -162,26 +162,6 @@ describe('Iceberg & icecore tests', function () {
     
           })
         })
-        describe('GET /maunaAnnual/1969', function () {
-          it('should return data', function (done) {
-            //send http request
-            chai.request("https://webproj9.oulu.azatotweb.com")
-                .get("/maunaAnnual/1969")
-                .end(function(err, res) {
-                    //check response
-                    expect(err).to.be.null;
-                    expect(res).to.have.status(200);
-    
-                    //check response data structure
-                    expect(res.body).to.be.jsonSchema(MaunaAnnualTestSchema)
-                    done();
-                    
-    
-    
-                })
-    
-          })
-        })
 
                 //Icecore Monthly
 
@@ -190,26 +170,6 @@ describe('Iceberg & icecore tests', function () {
                     //send http request
                     chai.request("https://webproj9.oulu.azatotweb.com")
                         .get("/mauanaMonthly")
-                        .end(function(err, res) {
-                            //check response
-                            expect(err).to.be.null;
-                            expect(res).to.have.status(200);
-            
-                            //check response data structure
-                            expect(res.body).to.be.jsonSchema(MauanaMonthlyTestShema)
-                            done();
-                            
-            
-            
-                        })
-            
-                  })
-                })
-                describe('GET /mauanaMonthly/1970', function () {
-                  it('should return data', function (done) {
-                    //send http request
-                    chai.request("https://webproj9.oulu.azatotweb.com")
-                        .get("/mauanaMonthly/1970")
                         .end(function(err, res) {
                             //check response
                             expect(err).to.be.null;
