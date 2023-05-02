@@ -7,9 +7,14 @@ const Navigation = () => {
   };
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      variant="dark"
+      fixed="top"
+      style={{ backgroundColor: "#19A7CE", color: "#F6F1F1" }}>
       <Container>
-        <Navbar.Brand href="/">WebProj9</Navbar.Brand>
+        <Navbar.Brand href="/">Ilmi</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

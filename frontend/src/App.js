@@ -30,6 +30,7 @@ import MyVisualizations from "./Pages/MyVisualizations";
 import Visualization3 from "./Visualization3/Visualization3";
 import Visualization5 from "./Visualization5/Visualization5";
 import Visualization4 from "./Visualisation4/Visualization4";
+import EmptyComponent from "./Pages/LoadPage";
 
 function App() {
   const [pages, setPages] = useState([]);
@@ -47,12 +48,16 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        backgroundColor: "#AFD3E2",
+        color: "#146C94",
+        minHeight: "100vh",
+      }}>
       <Router>
         <Navigation></Navigation>
-        <br></br>
-        <br></br>
-        <br></br>
+        <div style={{ minHeight: "56px" }}></div>
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -62,7 +67,7 @@ function App() {
               (
                 <Route
                   key={page.id_visualization}
-                  path={`/${page.url}`}
+                  path={`/vis/${page.url}`}
                   element={
                     <Page
                       number={page.lable}
@@ -92,6 +97,7 @@ function App() {
           </Route>
 
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/vis/*" element={<EmptyComponent />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>

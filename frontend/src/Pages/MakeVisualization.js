@@ -142,7 +142,7 @@ const VisualizationForm = () => {
   }, []);
 
   const OpnNewPage = () => {
-    navigate("/" + url);
+    navigate("/vis/" + url);
 
     window.location.reload();
   };

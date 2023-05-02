@@ -14,8 +14,8 @@ import {
 } from "react-bootstrap";
 
 function Error404() {
-  const second_color = "#1F2833";
-  const second_text_color = "#C5C6C7";
+  const second_color = "#F6F1F1";
+  const second_text_color = "#146C94";
   return (
     <>
       <div

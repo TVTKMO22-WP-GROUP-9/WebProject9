@@ -65,7 +65,7 @@ const MyVisualizations = () => {
                 <Card.Body>
                   <Card.Title>{page.lable}</Card.Title>
                   <Card.Text>{page.text}</Card.Text>
-                  <Button as={Link} to={"/" + page.url}>
+                  <Button as={Link} to={"/vis/" + page.url}>
                     View
                   </Button>
                   <Button
