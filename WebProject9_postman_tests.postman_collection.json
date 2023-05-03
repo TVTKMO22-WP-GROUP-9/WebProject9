@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "003b7e92-6735-4750-abd5-280347479d8b",
+		"name": "WebProject9_postman_tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetVisualization1HadCrutGlobalAnnual",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/hadcrud/GlobalAnnual",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"hadcrud",
+						"GlobalAnnual"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization1HadCrutGlobalMonthly",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/hadcrud/GlobalMonthly",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"hadcrud",
+						"GlobalMonthly"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization1HadCrutSouthernAnnual",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/hadcrud/SouthernAnnual",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"hadcrud",
+						"SouthernAnnual"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization1HadCrutSouthernMonthly",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/hadcrud/SouthernMonthly",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"hadcrud",
+						"SouthernMonthly"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization1HadCrutNorthenAnnual",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/hadcrud/NorthenAnnual",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"hadcrud",
+						"NorthenAnnual"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization1HadCrutNorthenMonthly",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/hadcrud/NorthenMonthly",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"hadcrud",
+						"NorthenMonthly"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization1Reconstruction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/reconstruction",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"reconstruction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization2MaunaMonthly",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/mauanaMonthly",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"mauanaMonthly"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization2MaunaAnnual",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/maunaAnnual",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"maunaAnnual"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization2Icecore1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/iceberg1",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"iceberg1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization2Icecore2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/iceberg2",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"iceberg2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization2Icecore3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/iceberg3",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"iceberg3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization3GlobalTemperatures",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/carbondioxide",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"carbondioxide"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization4AnnualEmissionsByCountry",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/visualization4",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"visualization4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization4AnnualEmissionsBySectorsFirst",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/sector",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"sector"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization5AnnualEmissionsBySectorsSecond",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/sub_sector",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"sub_sector"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization5AnnualEmissionsBySectorsThird",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/login",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVisualization5AnnualEmissionsBySectorsThird Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://webproj9.oulu.azatotweb.com/sub_sector_further",
+					"protocol": "https",
+					"host": [
+						"webproj9",
+						"oulu",
+						"azatotweb",
+						"com"
+					],
+					"path": [
+						"sub_sector_further"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

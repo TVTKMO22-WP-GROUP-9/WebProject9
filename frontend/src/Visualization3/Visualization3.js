@@ -150,16 +150,22 @@ function Visualization3() {
       <Row>
         {" "}
         <p>
-          Sources<br></br> "Evolution of global temperature over the past two
-          million years"{" "}
+          Sources<br></br> Carolyn W. Snyder 26. September 2016. Evolution of global temperature over the past two
+          million years{" "}
           <a
-            href="http://carolynsnyder.com/publications.php -
-          http://carolynsnyder.com/papers/Snyder_Data_Figures.zip">
-            data
+            href="https://climate.fas.harvard.edu/files/climate/files/snyder_2016.pdf">
+            Source
           </a>
         </p>
         <p>
-          "Human Evolution and Activities"{" "}
+          <br></br> Snyder Data figures{" "}
+          <a
+            href="http://carolynsnyder.com/papers/Snyder_Data_Figures.zip">
+            File
+          </a>
+        </p>
+        <p>
+          Human Evolution and Activities, Compiled by C. Patrick Doncaster, 1 May 2023{" "}
           <a href="https://www.southampton.ac.uk/~cpd/history.html">data</a>
         </p>
       </Row>
